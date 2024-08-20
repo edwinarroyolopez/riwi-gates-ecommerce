@@ -49,5 +49,3 @@ El puerto en el que correrá ```customer``` será
 
 Después de instaladas las dependencias puedes lanzar el comando ```npx turbo run dev --filter=customer```
 desde la raiz del proyecto cada vez que quieras iniciar este proyecto
-
-npx turbo run dev --filter=apps/admin

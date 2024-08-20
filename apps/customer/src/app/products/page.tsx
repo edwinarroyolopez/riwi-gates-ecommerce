@@ -1,4 +1,4 @@
-import Layout from './components/Layout';
+import Layout from '../components/Layout';
 import { FC } from 'react';
 
 interface Product {
@@ -24,7 +24,7 @@ const HomePage: FC<{ products: Product[] }> = ({ products }) => {
 
 // Función para obtener productos
 async function fetchProducts() {
-  console.log({test: 'fetchProducts'})
+
   const res = await fetch('https://rickandmortyapi.com/api/character');
   const data = await res.json();
 
