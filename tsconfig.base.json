@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "esnext",
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "noEmit": true,
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "jsx": "preserve",
+      "incremental": true,
+      "baseUrl": ".",
+      "paths": {
+        "@admin/*": ["apps/admin/src/*"],
+        "@customer/*": ["apps/customer/src/*"],
+        "@common/*": ["apps/common/src/*"],
+        "@ui/*": ["packages/ui/src/*"],
+        "@utils/*": ["packages/utils/src/*"]
+      }
+    },
+    "include": ["apps/*/src", "packages/*/src"],
+    "exclude": ["node_modules"]
+  }
+  

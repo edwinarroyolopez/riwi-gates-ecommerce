@@ -1,0 +1,18 @@
+{
+    "tasks": {
+      "build": {
+        "dependsOn": ["^build"],
+        "outputs": ["dist/**", ".next/**"]
+      },
+      "lint": {
+        "outputs": []
+      },
+      "test": {
+        "outputs": ["coverage/**"]
+      },
+      "dev": {
+        "cache": false
+      }
+    }
+  }
+  
