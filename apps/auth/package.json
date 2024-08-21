@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "json-server --watch ./config/db.json"
+    "server": "json-server --watch ./src/config/db.json"
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.2",
