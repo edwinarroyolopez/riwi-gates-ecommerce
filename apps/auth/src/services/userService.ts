@@ -64,4 +64,5 @@ export default class UserService {
       "PATCH"
     );
   }
+  async deletePassword(user_id: number): Promise<void> {}
 }
