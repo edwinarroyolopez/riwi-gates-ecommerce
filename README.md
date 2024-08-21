@@ -5,7 +5,7 @@
 
 
 ## ui-documentation -> ui team
-Este es el proyecto en el que el equipo de ui usará para mostrar sus componentes
+Este es el proyecto que el equipo de ui usará para mostrar sus componentes
 Imagino un sidebar donde listan los nombres de los componentes UI y al dar click
 se renderiza la información del componente en un container central
     - Nombre y descripción del componente
