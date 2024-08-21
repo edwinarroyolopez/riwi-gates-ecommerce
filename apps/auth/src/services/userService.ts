@@ -18,19 +18,6 @@ export default class UserService {
 
   async createUser(user: Partial<>): Promise<void> {
     // Esperando el tipo para indicarlo en el parametro ---->
-    const {
-      name,
-      document_number,
-      email,
-      password,
-      birthdate,
-      cellphone,
-      zip_code,
-      address,
-      type_document_id,
-      country_id,
-      role_id,
-    } = user;
     return await Util.fetchApi(
       "http://localhost:3000/users/",
       {
@@ -57,5 +44,8 @@ export default class UserService {
       },
       "PUT"
     );
+  }
+  async updatePassword(user_id:number, newPassword: string):Promise<void>{
+    const user = await Util.
   }
 }
