@@ -1,5 +1,5 @@
 export default class Util {
-  static async fetchApi(url: string, options: {}) {
+  static async fetchApi(url: string, options: {}, verb: string) {
     try {
       const response = await fetch(url, options);
       if (!response.ok) {
@@ -7,7 +7,10 @@ export default class Util {
       }
       return response.json();
     } catch (error) {
-      console.log({ message: "Error with the method fetchApi", error });
+      console.log({
+        message: `Error with the method fetchApi - verb ${verb}`,
+        error,
+      });
     }
   }
 }
