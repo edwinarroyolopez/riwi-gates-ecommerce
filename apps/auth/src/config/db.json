@@ -1,104 +1,123 @@
 {
-  "users": [
+  "users":[
     {
       "id": 1,
-      "name": "cardona",
-      "document_number": 123456789,
-      "email": "testUpdate@example.com",
-      "password": "U2FsdGVkX1+pILjghytveq7a7zqNPxBx5aekMrKkmGU=",
-      "birthdate": "2000-01-01",
-      "cellphone": "123456789",
-      "zip_code": "123456",
-      "address": "calle 123",
-      "type_document_id": 1,
-      "country_id": 1,
-      "role_id": 2   
+      "name": "",
+      "email": "",
+      "password": "",
+      "phone": "",
+      "adress": "",
+      "roles":[
+        {
+          "id": 1,
+          "name": "admin"
+        },
+        {
+          "id": 2,
+          "name": "user"
+        },
+        {
+          "id": 3,
+          "name": "superAdmin"
+        }
+      ]
+
     }
   ],
-  "roles": [
+  "products": [
     {
-      "id": "1",
-      "name": "admin"
-    },
-    {
-      "id": "2",
-      "name": "user"
-    },
-    {
-      "id": "3",
-      "name": "superAdmin"
-    }
-  ],
-  "type_documents": [
-    {
-      "id": "1",
-      "name": "CC"
-    },
-    {
-      "id": "2",
-      "name": "CE"
-    },
-    {
-      "id": "3",
-      "name": "NIT"
-    },
-    {
-      "id": "4",
-      "name": "PP"
-    }
-  ],
-  "countries": [
-    {
-      "id": "1",
-      "name": "Colombia"
-    },
-    {
-      "id": "2",
-      "name": "Brazil"
-    },
-    {
-      "id": "3",
-      "name": "EE.UU"
-    }
-  ],
-  "states": [
-    {
-      "id": "1",
-      "name": "Antioquia",
-      "country_id": 1
-    }
-  ],
-  "cities": [
-    {
-      "id": "1",
-      "name": "Medellin",
-      "state_id": 1
-    }
-  ],
-  "permissions": [
-    {
-      "id": "1",
-      "canCreate": true,
-      "canRead": true,
-      "canUpdate": true,
-      "canDelete": true,
-      "role_id": 1
-    },
-    {
-      "id": "2",
-      "canCreate": false,
-      "canRead": true,
-      "canUpdate": false,
-      "canDelete": false,
-      "role_id": 2
-    },
-    {
-      "id": "3",
-      "canCreate": true,
-      "canRead": true,
-      "canUpdate": true,
-      "canDelete": true,
-      "role_id": 3
+      "id": 1,
+      "name":"",
+      "description": "",
+      "price": "",
+      "stock": 0,
+      "size": [
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        }
+      ],
+      "thumbnail": "",
+      "images": [
+        {
+          "id": 1,
+          "url": ""
+        }
+      ],
+      "categories": [
+        {
+          "men": [
+            {
+              "subCategories": [
+                {
+                  "jeans":[
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "shirts":[
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "women": [
+            {
+              "subCategories": [
+                {
+                  "jeans":[
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "shirts":[
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "clothes": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kids": [
+            {
+              "subCategories": [
+                {
+                  "jeans":[
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "shirts":[
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
