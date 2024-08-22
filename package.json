@@ -17,5 +17,8 @@
   "devDependencies": {
     "turbo": "^2.0.14"
   },
-  "packageManager": "npm@9.6.6"
+  "packageManager": "npm@9.6.6",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
 }

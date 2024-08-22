@@ -1,0 +1,181 @@
+{
+    "products": [
+      {
+        "category": "Top",
+        "subcategories": [
+          {
+            "subcategory": "T-Shirts",
+            "items": [
+              {
+                "name": "Basic White T-Shirt",
+                "description": "Simple white T-shirt made from 100% cotton.",
+                "price": 19.99,
+                "units": 150
+              },
+              {
+                "name": "Graphic Tee",
+                "description": "Black T-shirt with custom graphic print.",
+                "price": 24.99,
+                "units": 100
+              }
+            ]
+          },
+          {
+            "subcategory": "Hoodies",
+            "items": [
+              {
+                "name": "Pullover Hoodie",
+                "description": "Comfortable hoodie with front pocket and drawstrings.",
+                "price": 39.99,
+                "units": 75
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category": "Bottom",
+        "subcategories": [
+          {
+            "subcategory": "Jeans",
+            "items": [
+              {
+                "name": "Slim Fit Jeans",
+                "description": "Dark blue slim fit jeans with stretch fabric.",
+                "price": 49.99,
+                "units": 200
+              }
+            ]
+          },
+          {
+            "subcategory": "Shorts",
+            "items": [
+              {
+                "name": "Denim Shorts",
+                "description": "Casual denim shorts with frayed edges.",
+                "price": 29.99,
+                "units": 120
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "orders": [
+      {
+        "order_id": 1,
+        "user_id": 1,
+        "order_date": "2024-08-21",
+        "products": [
+          {
+            "name": "Basic White T-Shirt",
+            "price": 19.99,
+            "quantity": 2
+          }
+        ]
+      }
+    ],
+    "users": [
+      {
+        "id": 1,
+        "name": "jose",
+        "document_number": 123456789,
+        "email": "jose@jose",
+        "password": "123456",
+        "birthdate": "2000-01-01",
+        "cellphone": "123456789",
+        "zip_code": "123456",
+        "address": "calle 123",
+        "type_document_id": 1,
+        "country_id": 1,
+        "role_id": 1          
+      }
+    ],
+    "roles": [
+      {
+        "id": 1,
+        "name": "admin"
+      },
+      {
+        "id": 2,
+        "name": "user"
+      },
+      {
+        "id": 3,
+        "name": "superAdmin"
+      }
+    ],
+    "type_documents":[
+      {
+        "id": 1,
+        "name": "CC"    
+      },
+      {
+        "id": 2,
+        "name": "CE"
+      },
+      {
+        "id": 3,
+        "name": "NIT"
+      },
+      {
+        "id": 4,
+        "name": "PP"
+      }
+    ],
+    "countries":[
+      {
+        "id": 1,
+        "name": "Colombia"
+      },
+      {
+        "id": 2,
+        "name": "Brazil"
+      },
+      {
+        "id": 3,
+        "name": "EE.UU"
+      }
+    ],
+    "states": [
+      {
+        "id": 1,
+        "name": "Antioquia",
+        "country_id": 1
+      }
+    ],
+    "cities": [
+      {
+        "id": 1,
+        "name": "Medellin",
+        "state_id": 1
+      }
+    ],
+    "permissions":[
+      {
+        "id": 1,
+        "canCreate": true,
+        "canRead": true,
+        "canUpdate": true,
+        "canDelete": true,
+        "role_id": 1
+      },
+      {
+        "id": 2,
+        "canCreate": false,
+        "canRead": true,
+        "canUpdate": false,
+        "canDelete": false,
+        "role_id": 2
+      },
+      {
+        "id": 3,
+        "canCreate": true,
+        "canRead": true,
+        "canUpdate": true,
+        "canDelete": true,
+        "role_id": 3
+      }
+    ]
+}
+  
