@@ -121,7 +121,7 @@ export default class UserService {
     }
     console.log({message: "Updated user correctly"});
   }
-  async updatePassword(user_id: number, newPassword: string): Promise<void> {
+  static async updatePassword(newPassword: string, user_id: string): Promise<void> {
     // Método para cambiar la contraseña de un usuario en específico
     // Actualizar la password al usuario
     console.log("Updating password user")
