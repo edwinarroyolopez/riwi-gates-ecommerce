@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3002",
+    "dev": "concurrently \"npm run dev:next\" \"npm run dev:json\"",
+    "dev:next": "next dev -p 3002",
+    "dev:json": "json-server --watch ../common/database/db.json --port 3004",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -14,12 +16,16 @@
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "concurrently": "^8.2.2",
     "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "typescript": "^5"
     "eslint-config-next": "14.2.5",
     "typescript": "^5"
   }
