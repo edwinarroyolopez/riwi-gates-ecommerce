@@ -22,7 +22,7 @@ const Products = () => {
 
   useEffect(() => {
     axios
-      .get<Product[]>("http://localhost:3001/products")
+      .get<Product[]>("http://localhost:3004/products")
       .then((response) => {
         console.log(response);
         dispatch(readProducts(response.data));
@@ -33,20 +33,20 @@ const Products = () => {
   const handleCreateProduct = () => {
     if (newProductName) {
       const newProduct: Product = {
-        id: Date.now(),  // Asume un ID temporal, reemplazar con lógica real
+        id: (Date.now()).toString(),  // Asume un ID temporal, reemplazar con lógica real
         name: newProductName,
-        description: "",
+        description: "hola",
         price: 0,
         units: 0,
         category_id: 1,  // Asume un ID de categoría, reemplazar con lógica real
         subcategory_id: 1,  // Asume un ID de subcategoría, reemplazar con lógica real
-        images: [],
+        images: ["https://example.com/image.jpg"],
       };
 
       dispatch(createProduct(newProduct));
 
       axios
-        .post("http://localhost:3001/products", newProduct)
+        .post("http://localhost:3004/products", newProduct)
         .then((response) => {
           console.log(response);
           setNewProductName("");
@@ -63,7 +63,7 @@ const Products = () => {
       dispatch(updateProduct(product));
 
       axios
-        .put(`http://localhost:3001/products/${product.id}`, product)
+        .put(`http://localhost:3004/products/${product.id}`, product)
         .then((response) => {
           console.log(response);
           setEditedProduct(null);
@@ -72,10 +72,10 @@ const Products = () => {
     }
   };
 
-  const handleDeleteProduct = (productId: number) => {
+  const handleDeleteProduct = (productId: string) => {
     dispatch(deleteProduct(productId));
     axios
-      .delete(`http://localhost:3001/products/${productId}`)
+      .delete(`http://localhost:3004/products/${productId}`)
       .catch((error) => console.error(error));
   };
 

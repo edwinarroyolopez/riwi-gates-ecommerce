@@ -50,7 +50,7 @@ const productsSlice = createSlice({
       }
     },
     // Tipo de acción y payload para eliminar un producto
-    deleteProduct: (state, action: PayloadAction<number>) => {
+    deleteProduct: (state, action: PayloadAction<string>) => {
       state.products = state.products.filter((product) => product.id !== action.payload);
     },
     // Tipo de acción y payload para leer categorías
