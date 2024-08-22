@@ -42,47 +42,50 @@ export default class UserService {
 
   async getUserById(user_id: number): Promise<IUser> {
     // Obtener un usuario por id
-    // -----> Obtener un usuario por id
-    return await Util.fetchApi(
+    // -----> Se espera Obtener un usuario por id. //
+    return await UserService.fetchApi(
       `http://localhost:3000/users/${user_id}`,
       {},
-      "GET BY ID"
+      "GET BY ID",
+      "getUserById"
     );
   }
 
   async createUser(user: Partial<IUser>): Promise<IUser> {
     // Crear un usuario
-    // Esperando el tipo para indicarlo en el parametro ---->
-    return await Util.fetchApi(
+    return await UserService.fetchApi(
       "http://localhost:3000/users/",
       {
         method: "POST",
         headers: {
           "Content-Type": "application-json",
         },
-        body: JSON.stringify(user),
+        body: JSON.stringify(user), // El JSON.stringify se utiliza para convertir el objeto en texto. El cuerpo debe estar en este formato
       },
-      "POST"
+      "POST",
+      "createUser"
     );
   }
 
   async updateUser(user_id: number, user: Partial<IUser>): Promise<void> {
-    // Esperando el tipo
-    await Util.fetchApi(
+    // Método para actualizar un usuario
+    await UserService.fetchApi(
       `http://localhost:3000/users/${user_id}`,
       {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(user),
+        body: JSON.stringify(user), // Se espera el usuario actualizado
       },
-      "PUT"
+      "PUT",
+      "updateUser"
     );
   }
   async updatePassword(user_id: number, newPassword: string): Promise<void> {
+    // Método para cambiar la contraseña de un usuario en específico
     // Actualizar la password al usuario
-    await Util.fetchApi(
+    await UserService.fetchApi(
       `http://localhost:3000/users/${user_id}`,
       {
         method: "PATCH",
@@ -93,7 +96,8 @@ export default class UserService {
           password: newPassword,
         }),
       },
-      "PATCH"
+      "PATCH",
+      "updatePassword"
     );
   }
   async deletePassword(user_id: number): Promise<void> {}
