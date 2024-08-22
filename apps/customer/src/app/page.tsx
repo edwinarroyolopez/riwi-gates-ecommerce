@@ -11,6 +11,7 @@ const HomePage: FC = () => {
           <Image src="/men.jpeg" width={450} height={600} alt="Picture"/>
           <Image src="/teen.jpg" width={450} height={600} alt="Picture"/>
         
+          <li><a href="/categories">categorias</a></li>
       </div>
   );
 };
