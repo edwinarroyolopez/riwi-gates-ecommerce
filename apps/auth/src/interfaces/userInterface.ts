@@ -4,7 +4,7 @@ export default interface IUser {
   document_number: number;
   email: string;
   password: string;
-  birthdate: Date;
+  birthdate: string;
   cellphone: string;
   zip_code: string;
   address: string;
