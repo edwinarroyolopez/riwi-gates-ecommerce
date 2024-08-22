@@ -1,4 +1,5 @@
 import IUser from "@/interfaces/userInterface";
+import { Util } from "@/utils/util";
 
 export default class UserService {
   static async fetchApi(
@@ -15,6 +16,7 @@ export default class UserService {
     try {
       // Manejador de errores
       const response = await fetch(url, options);
+      console.log(response);
       if (!response.ok) {
         // Si la respuesta no es lo que se esperaba lanzar un nuevo error y el status
         throw new Error(`Error with the response - Status: ${response.status}`);
@@ -30,47 +32,81 @@ export default class UserService {
   }
 
   // Clase UserService
-  async getAllUsers(): Promise<IUser[]> {
+  static async getAllUsers(): Promise<IUser[] | undefined> {
     // Obtener todos los users
-    return await UserService.fetchApi(
-      "http://localhost:3000/users",
-      {},
-      "GET",
-      "getAllUsers"
-    ); // Conexión con el endpoint . El método fetchApi ya valida los errores
+    const getUsers = await UserService.fetchApi("http://localhost:3040/users",{},"GET","getAllUsers"); // Conexión con el endpoint . El método fetchApi ya valida los errores
+    if (getUsers) {
+      console.log({ message: "User found" });
+      return getUsers;
+    }
   }
 
-  async getUserById(user_id: number): Promise<IUser> {
+  static async getUserById(user_id: number): Promise<IUser | undefined> {
     // Obtener un usuario por id
     // -----> Se espera Obtener un usuario por id. //
-    return await UserService.fetchApi(
-      `http://localhost:3000/users/${user_id}`,
-      {},
-      "GET BY ID",
+    const getUser: IUser = await UserService.fetchApi(`http://localhost:3040/users/${user_id}`,
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      },
+      "GET",
       "getUserById"
     );
+    if (!getUser) {
+      console.log({ message: "User not found" });
+      return;
+    }
+    return getUser;
   }
 
-  async createUser(user: Partial<IUser>): Promise<IUser> {
-    // Crear un usuario
-    return await UserService.fetchApi(
-      "http://localhost:3000/users/",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application-json",
-        },
-        body: JSON.stringify(user), // El JSON.stringify se utiliza para convertir el objeto en texto. El cuerpo debe estar en este formato
-      },
-      "POST",
-      "createUser"
-    );
+  static async getUserByEmail(email: string | undefined): Promise<IUser | undefined>{ // Obtener un usuario por email
+    const users: IUser[] = await UserService.fetchApi("http://localhost:3040/users", {}, "GET", "getUserByEmail"); // Buscar todos los usuario
+    const userFound = users.find(user => user.email === email); // Filtrar el usuario por email
+    if(userFound){ // Retonar el usuario si se encuentra
+      return userFound
+    }
+    return;// Retornar un false si no se encuentra
+  }
+
+  static async createUser(user: Partial<IUser>):Promise<IUser | undefined | object> {// Método para crear usuarios. Se espera que se envíen todos los datos
+    const {name, document_number, email,password,birthdate,cellphone,zip_code,
+      address,type_document_id,country_id,role_id} = user;
+    const dataVerify = Util.verifyData(name,document_number, email, password, birthdate, cellphone, zip_code,
+                                      address, type_document_id, country_id,role_id); // Este método verifica si falta un dato 
+    if(!dataVerify){ //Mostrar error al faltar un dato
+      console.log({message: "Error. Please send all the properties"});
+      return;
+    }
+    const userFound = UserService.getUserByEmail(email); // Obtener usuario encontrado o un undefined
+    if(!userFound){
+      return await UserService.fetchApi("http://localhost:3040/users",{ //Crear un usuario
+          method: "POST",
+          headers: {
+            "Content-Type": "application-json",
+          },
+          body: JSON.stringify({ // Enviar el usuario
+            name,
+            document_number,
+            email,
+            password: Util.encryptPassword(password!), // Encriptar la password usando bcrypt
+            birthdate,
+            cellphone,
+            zip_code,
+            address,
+            type_document_id,
+            country_id,
+            role_id: role_id! | 2 // El usuario siempre se crear con el role 2 user 
+          }), // El JSON.stringify se utiliza para convertir el objeto en texto. El cuerpo debe estar en este formato
+        },"POST","createUser" // Parámetros para enviar errores...
+      );   
+    }
+    return({message: "User exists. Try again!..."});
   }
 
   async updateUser(user_id: number, user: Partial<IUser>): Promise<void> {
     // Método para actualizar un usuario
     await UserService.fetchApi(
-      `http://localhost:3000/users/${user_id}`,
+      `http://localhost:3080/users/${user_id}`,
       {
         method: "PUT",
         headers: {
@@ -86,7 +122,7 @@ export default class UserService {
     // Método para cambiar la contraseña de un usuario en específico
     // Actualizar la password al usuario
     await UserService.fetchApi(
-      `http://localhost:3000/users/${user_id}`,
+      `http://localhost:3080/users/${user_id}`,
       {
         method: "PATCH",
         headers: {
