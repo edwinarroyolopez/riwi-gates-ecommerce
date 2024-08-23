@@ -19,7 +19,8 @@ const initialState:IUser={
 export default function Register() {
   
   const [user, setUser] = useState<IUser>(initialState);
-  const [confirmPassword,setConfirmPassword] = useState("");
+  const [confirmEmail,setConfirmEmail] = useState('');
+  const [confirmPassword,setConfirmPassword] = useState('');
 
   function handleName(e: React.ChangeEvent<HTMLInputElement>) {
     setUser(prevUser => ({
@@ -31,8 +32,12 @@ export default function Register() {
     }));
   }
 
+  function handleConfirmEmail(e: React.ChangeEvent<HTMLInputElement>){
+    setConfirmEmail(e.target.value);
+  }
+
   function handleConfirmPassword(e: React.ChangeEvent<HTMLInputElement>){
-    setConfirmPassword(e.target.value)
+    setConfirmPassword(e.target.value);
   }
 
   function handleOthers(e:React.ChangeEvent<HTMLInputElement>){
@@ -45,7 +50,13 @@ export default function Register() {
   function handleSubmit(e: React.FormEvent) {
     try {
       e.preventDefault();
-      if(user.password !== confirmPassword){
+      if(!user.name.firstName || !user.name.lastName || !user.email || !user.phone || !user.address || !user.password){
+        throw new Error("Todos los campos son obligatorios");
+      }
+      if(user.email!==confirmEmail){
+        throw new Error("Los correos electrónicos no coinciden");
+      }
+      if(user.password!==confirmPassword){
         throw new Error("Las contraseñas no coinciden");
       }
       if(!isValidPassword(user.password)){
@@ -59,21 +70,19 @@ export default function Register() {
 
   return (
     <main>
-      <h1>Registro</h1>
+      <h1>Register</h1>
       <form className={styles.registerForm} onSubmit={handleSubmit}>
-        <label htmlFor="firstName">Nombre</label>
-        <input required id="firstName" onChange={handleName} type="text" placeholder="Nombre" />
-        <label htmlFor="lastName">Apellidos</label>
-        <input required id="lastName" onChange={handleName} type="text" placeholder="Apellidos" />
-        <label htmlFor="email">Correo Electrónico</label>
-        <input required id="email" type="email" placeholder="Correo Electrónico" onChange={handleOthers}/>
-        <label htmlFor="phone">Celular</label>
-        <input id="phone" type="number" placeholder="Celular" onChange={handleOthers}/>
-        <label htmlFor="password">Password</label>
-        <small>(Min 12 caracteres. Incluye 1 número, 1 letra mayuscula y 1 caractér especial)</small>
+        <input required id="firstName" onChange={handleName} type="text" placeholder="First Name" />
+        <input required id="lastName" onChange={handleName} type="text" placeholder="Last Name" />
+        <small>{user.email!==confirmEmail?'El correo electrónico debe coincidir':''}</small>
+        <input required id="email" type="email" placeholder="Email" onChange={handleOthers}/>
+        <input required id="confirm-email" type="email" placeholder="Confirm Email" onChange={handleConfirmEmail}/>
+        <input id="phone" type="number" placeholder="Cellphone" onChange={handleOthers}/>
+        <input required id="address" onChange={handleOthers} type="text" placeholder="Address" />
+        <small>{!isValidPassword(user.password)?'La contraseña debe incluir 12 caracteres, 1 número, 1 letra mayuscula y 1 caractér especial':''}</small>
+        <small>{user.password!==confirmPassword?'Las contraseñas deben coincidir':''}</small>
         <input required id="password" type="password" placeholder="Password" onChange={handleOthers}/>
-        <label htmlFor="confirm-password">Confirm Password</label>
-        <input required id="confirm-password" type="password" placeholder="Password" onChange={handleConfirmPassword}/>
+        <input required id="confirm-password" type="password" placeholder="Confirm Password" onChange={handleConfirmPassword}/>
         <button type="submit">Enviar</button>
       </form>
     </main>
