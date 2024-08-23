@@ -1,5 +1,5 @@
 {
-  "name": "riwi-gates-ecommerce",
+  "name": "utils",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,16 +9,15 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "devDependencies": {
-    "turbo": "^2.0.14"
-  },
-  "packageManager": "npm@9.6.6",
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8"
   }
 }
