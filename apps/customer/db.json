@@ -1,0 +1,124 @@
+
+{
+  "users":[
+    {
+      "id": 1,
+      "name": "",
+      "email": "",
+      "password": "",
+      "phone": "",
+      "adress": "",
+      "roles":[
+        {
+          "id": 1,
+          "name": "admin"
+        },
+        {
+          "id": 2,
+          "name": "user"
+        },
+        {
+          "id": 3,
+          "name": "superAdmin"
+        }
+      ]
+
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name":"",
+      "description": "",
+      "price": "",
+      "stock": 0,
+      "size": [
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        }
+      ],
+      "thumbnail": "",
+      "images": [
+        {
+          "id": 1,
+          "url": ""
+        }
+      ],
+      "categories": [
+        {
+          "men": [
+            {
+              "subCategories": [
+                {
+                  "jeans":[
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "shirts":[
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "women": [
+            {
+              "subCategories": [
+                {
+                  "jeans":[
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "shirts":[
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "clothes": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kids": [
+            {
+              "subCategories": [
+                {
+                  "jeans":[
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "shirts":[
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
