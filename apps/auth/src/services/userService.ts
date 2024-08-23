@@ -1,8 +1,24 @@
 import IUser from "@/interfaces/userInterface";
 import { Util } from "@/utils/util";
+import { NextResponse } from "next/server";
 
 
+export default class UserService{
 
+  static async fetchApi(url:string, options: {method: string, headers: {}}){
+    try{
+      const response = await fetch(url, options);
+      if(!response.ok) ({message: "Error with the response the fetch api"})
+      return await response.json();
+  
+    }catch(error){
+      return console.log({message: "Error with the method fetchApi"})
+    }
+  }
+  static async getUsers(): Promise<IUser[]>{
+    const data = await
+  }
+}
 // export default class UserService {
 //   static async fetchApi(
 //     // Este método nos sirve para reutilizar tanto su manejador de erores como el fetch
