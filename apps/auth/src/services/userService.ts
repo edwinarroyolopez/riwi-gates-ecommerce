@@ -1,23 +1,30 @@
+"use server";
 import IUser from "@/interfaces/userInterface";
 import { Util } from "@/utils/util";
 import { NextResponse } from "next/server";
 
 
-export default class UserService{
+export default class UserService{ // Clase UserService
 
-  static async fetchApi(url:string, options: {method: string, headers: {}}){
-    try{
+  static async fetchApi(url:string, options: {} | {method: string, headers: {}}): Promise<JSON | string>{ // Método fetchApi
+    try{ // Manejador de errores -> Este método es necesario para obtener un error o la respuesta en formato json
       const response = await fetch(url, options);
-      if(!response.ok) ({message: "Error with the response the fetch api"})
+      if(!response.ok) ({message: "Error with the response the fetch api"}) // Mostrar error si la respuesta presenta un error
       return await response.json();
   
     }catch(error){
-      return console.log({message: "Error with the method fetchApi"})
+      return "Error with the method fetchApi"
     }
   }
-  static async getUsers(): Promise<IUser[]>{
-    const data = await
+  static async getUsers(): Promise<NextResponse>{
+    try{
+      const data = await UserService.fetchApi("http://localhost:3040/users", {});
+      return NextResponse.json({message: "Users found...", users:data}, {status:200})
+    }catch(error){
+      return NextResponse.json({message: "Error with the method getUsers"}, {status:500})
+    }
   }
+
 }
 // export default class UserService {
 //   static async fetchApi(

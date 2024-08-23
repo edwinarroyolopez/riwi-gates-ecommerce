@@ -4,5 +4,10 @@ export default interface IUser {
   password: string,
   phone: string,
   adress: string,
-  roles: object[]
+  roles: IObject[]
+}
+
+interface IObject {
+  id: number,
+  name: string
 }
