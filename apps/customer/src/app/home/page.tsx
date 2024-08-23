@@ -4,20 +4,24 @@ import Hero from '../components/ui/hero/hero';
 import Categorymain from '../components/cards/categorymain';
 import Categoryseason from '../components/cards/categoryseason';
 import LookSection from '../components/LookSection/LookSection';
-import styles from '../components/LookSection/styles/LookSection.module.scss'
 import Footer from '../components/ui/footer/footerBottom';
+import "./styles/stylehome.sass"
 
 
 const Category: FC = () => {
   return (
-      <main>
-        <Navbartop/>
-        <Hero/>
-        <Categorymain/>
-        <Categoryseason/>
+    <main className="category-container">
+      <Navbartop />
+      <div className="hero-wrapper">
+      <Hero />
+      </div>
+      <div className='content-wrapper'>
+        <Categorymain />
+        <Categoryseason />
         <LookSection />
         <Footer />
-      </main>
+      </div>
+    </main>
   );
 };
 
