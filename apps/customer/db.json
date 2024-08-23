@@ -1,14 +1,13 @@
-
 {
-  "users":[
+  "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "",
       "email": "",
       "password": "",
       "phone": "",
       "adress": "",
-      "roles":[
+      "roles": [
         {
           "id": 1,
           "name": "admin"
@@ -22,15 +21,41 @@
           "name": "superAdmin"
         }
       ]
-
+    },
+    {
+      "id": "c798",
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "123",
+      "phone": "1234567",
+      "adress": "cll 110",
+      "roles": [
+        {
+          "name": "admin"
+        }
+      ]
+    },
+    {
+      "id": "6729",
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "123",
+      "phone": "1234567",
+      "adress": "cll 110",
+      "roles": [
+        {
+          "id": 1,
+          "name": "admin"
+        }
+      ]
     }
   ],
   "products": [
     {
-      "id": 1,
-      "name":"",
+      "id": "1",
+      "name": "",
       "description": "",
-      "price": "",
+      "price": 0.0,
       "stock": 0,
       "size": [
         {
@@ -51,70 +76,48 @@
       ],
       "categories": [
         {
-          "men": [
+          "id": 1,
+          "name": "men",
+          "subcategories":[
             {
-              "subCategories": [
-                {
-                  "jeans":[
-                    {
-                      "id": 1,
-                      "name": ""
-                    }
-                  ],
-                  "shirts":[
-                    {
-                      "id": 1,
-                      "name": ""
-                    }
-                  ]
-                }
-              ]
+              "id": 1,
+              "name": "jeans"
+            },
+            {
+              "id": 2,
+              "name": "shirts"
             }
-          ],
-          "women": [
+          ]
+        },
+        {
+          "id": 2,
+          "name": "women",
+          "subcategories":[
             {
-              "subCategories": [
-                {
-                  "jeans":[
-                    {
-                      "id": 1,
-                      "name": ""
-                    }
-                  ],
-                  "shirts":[
-                    {
-                      "id": 1,
-                      "name": ""
-                    }
-                  ],
-                  "clothes": [
-                    {
-                      "id": 1,
-                      "name": ""
-                    }
-                  ]
-                }
-              ]
+              "id": 1,
+              "name": "jeans"
+            },
+            {
+              "id": 2,
+              "name": "shirts"
+            },
+            {
+              "id": 3,
+              "name": "clothes"
             }
-          ],
-          "kids": [
+          ]
+        },
+        {
+          "id": 3,
+          "name": "kids",
+          "subcategories":[
             {
-              "subCategories": [
-                {
-                  "jeans":[
-                    {
-                      "id": 1,
-                      "name": ""
-                    }
-                  ],
-                  "shirts":[
-                    {
-                      "id": 1,
-                      "name": ""
-                    }
-                  ]
-                }
-              ]
+              "id": 1,
+              "name": "jeans"
+            },
+            {
+              "id": 2,
+              "name": "shirts"
             }
           ]
         }
