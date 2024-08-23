@@ -10,7 +10,7 @@ const CategoriesPage = () => {
 
             <Aside></Aside>
         </main>
-       
+
     );
 }
 export default CategoriesPage;
