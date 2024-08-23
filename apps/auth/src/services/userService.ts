@@ -14,15 +14,23 @@ export class UserService{ // Clase UserService
       return ({message: "Error with the method fetchApi", status: 500}); // Devuelve un error en caso de falllo
     }
   }
-  static async getUsers(): Promise<({message: string, users: IUser[] | IUser | IShowMessage, status:number} | IShowMessage )>{
+  static async getUsers(): Promise<{message: string, users: IUser[] | IUser | IShowMessage, status:number} | IShowMessage>{
     const data = await UserService.fetchApi({url: "http://localhost:3040/users"});
     if(data && 'message' in data && 'status' in data){
-      console.log({message: "User not found"}); // Mostrar un error al no enconrar el usuario
+      console.log({message: "Users not found"}); // Mostrar un error al no enconrar el usuario
       return (data); // Retorna el error del fetchApi
     }
-    return ({message: "user found...", users: data, status: 200});
+    return ({message: "users found...", users: data, status: 200});
   }
 
+  static async getUserById(user_id:number):Promise<{message: string, user: IUser[] | IUser | IShowMessage | IShowMessage, status:number} | IShowMessage>{
+    const data = await UserService.fetchApi({url: `http://localhost:3040/users/${user_id}`});
+    if(data && 'message' in data && 'status' in data){
+      console.log({message: "User not found"});
+      return (data);
+    }
+    return ({message: "User found...", user: data, status: 200});
+  }
 }
 // export default class UserService {
 //   static async fetchApi(

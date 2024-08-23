@@ -6,7 +6,8 @@ import {UserService} from "@/services/userService";
 
 export default function Home() {
   useEffect(() => {
-    UserService.getUsers().then((user) => console.log(user));
+    // UserService.getUsers().then((user) => console.log(user));
+    UserService.getUserById(1).then((user) => console.log(user));
   }, []);
   return (
     <main className={styles.main}>
