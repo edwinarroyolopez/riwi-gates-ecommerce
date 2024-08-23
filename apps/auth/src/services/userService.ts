@@ -1,30 +1,36 @@
-"use server";
-import IUser from "@/interfaces/userInterface";
-import { Util } from "@/utils/util";
+import IUser, { IFetchApi, IShowMessage } from "@/interfaces/userInterface";
 import { NextResponse } from "next/server";
 
 
-export default class UserService{ // Clase UserService
+export class UserService{ // Clase UserService
 
-  static async fetchApi(url:string, options: {} | {method: string, headers: {}}): Promise<JSON | string>{ // Método fetchApi
+  static async fetchApi({url, options}: IFetchApi): Promise<IUser[] | IUser | IShowMessage>{ // Método fetchApi
     try{ // Manejador de errores -> Este método es necesario para obtener un error o la respuesta en formato json
+      // Las opciones pueden venir o no 
       const response = await fetch(url, options);
-      if(!response.ok) ({message: "Error with the response the fetch api"}) // Mostrar error si la respuesta presenta un error
-      return await response.json();
-  
+      if(!response.ok) ({message: "Error with the response the fetch API"}); // Mostrar error si la respuesta presenta un error
+      return await response.json(); // Devuelve la respuesta en formato json
     }catch(error){
-      return "Error with the method fetchApi"
+      return ({message: "Error with the method fetchApi", status: 500}); // Devuelve un error en caso de falllo
     }
   }
-  static async getUsers(): Promise<NextResponse>{
-    try{
-      const data = await UserService.fetchApi("http://localhost:3040/users", {});
-      return NextResponse.json({message: "Users found...", users:data}, {status:200})
-    }catch(error){
-      return NextResponse.json({message: "Error with the method getUsers"}, {status:500})
+  static async getUsers(): Promise<{message: string, users: IUser[] | IUser | IShowMessage, status:number} | IShowMessage>{
+    const data = await UserService.fetchApi({url: "http://localhost:3040/users"});
+    if(data && 'message' in data && 'status' in data){
+      console.log({message: "Users not found"}); // Mostrar un error al no enconrar el usuario
+      return (data); // Retorna el error del fetchApi
     }
+    return ({message: "users found...", users: data, status: 200});
   }
 
+  static async getUserById(user_id:number):Promise<{message: string, user: IUser[] | IUser | IShowMessage | IShowMessage, status:number} | IShowMessage>{
+    const data = await UserService.fetchApi({url: `http://localhost:3040/users/${user_id}`});
+    if(data && 'message' in data && 'status' in data){
+      console.log({message: "User not found"});
+      return (data);
+    }
+    return ({message: "User found...", user: data, status: 200});
+  }
 }
 // export default class UserService {
 //   static async fetchApi(

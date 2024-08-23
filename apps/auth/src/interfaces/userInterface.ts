@@ -11,3 +11,17 @@ export interface IObject {
   id: number,
   name: 'user' | 'admin' | 'superAdmin'; 
 }
+
+export interface IFetchApi{
+  url: string,
+  options?: {
+    method: string,
+    headers: {
+    },
+    body: string
+  }
+}
+export interface IShowMessage{
+  message: string,
+  status: number
+}
