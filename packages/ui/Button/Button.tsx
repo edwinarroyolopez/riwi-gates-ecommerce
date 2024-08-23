@@ -10,7 +10,7 @@ export interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ label, onClick, className }) => {
   return (
     <button onClick={onClick} className={className}>
-      {label}
+      {label} hola
     </button>
   );
 };
