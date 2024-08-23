@@ -2,6 +2,7 @@
 
 import React from "react";
 import RenderButton from "../Pablo/components/button";
+import Filter from "../JuanCalderon/components/filter";
 
 const Aside = () => {
     const asideStyle: React.CSSProperties = {
@@ -24,6 +25,7 @@ const Aside = () => {
         <aside style={asideStyle}>
             <h3>Filter</h3>
             <RenderButton onClick={handleRenderClick} />
+            <Filter />
         </aside>
     )
 }
