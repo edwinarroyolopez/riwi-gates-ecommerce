@@ -1,9 +1,10 @@
 "use client"
 
 import styles from './page.module.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IUser } from "./types";
 import { isValidPassword } from './utils';
+import { UserService } from '@/services/userService';
 
 const initialState:IUser={
   name: {
@@ -18,9 +19,17 @@ const initialState:IUser={
 
 export default function Register() {
   
+  const [usersData,setUsersData]=useState<any>();
   const [user, setUser] = useState<IUser>(initialState);
   const [confirmEmail,setConfirmEmail] = useState('');
   const [confirmPassword,setConfirmPassword] = useState('');
+
+  useEffect(() => {
+    (async () => {
+      const apiResponse=await UserService.getUsers();
+      setUsersData(apiResponse);
+    })();
+  },[]);
 
   function handleName(e: React.ChangeEvent<HTMLInputElement>) {
     setUser(prevUser => ({
@@ -50,6 +59,12 @@ export default function Register() {
   function handleSubmit(e: React.FormEvent) {
     try {
       e.preventDefault();
+      // let userExist=false;
+      // usersData.forEach(userArray => {
+      //   if(userArray.email===user.email){
+      //     userExist=true;
+      //   }
+      // });
       if(!user.name.firstName || !user.name.lastName || !user.email || !user.phone || !user.address || !user.password){
         throw new Error("Todos los campos son obligatorios");
       }
@@ -84,6 +99,7 @@ export default function Register() {
         <input required id="password" type="password" placeholder="Password" onChange={handleOthers}/>
         <input required id="confirm-password" type="password" placeholder="Confirm Password" onChange={handleConfirmPassword}/>
         <button type="submit">Enviar</button>
+        <button type='button' onClick={()=>console.log(usersData)}>Data</button>
       </form>
     </main>
   );
