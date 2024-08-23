@@ -1,5 +1,5 @@
 "use client"
-import Product from "./components/Products"
+import Product from "./components/products/Products"
 
 function App() {
   return (

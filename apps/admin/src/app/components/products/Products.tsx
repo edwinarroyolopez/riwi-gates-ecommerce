@@ -2,15 +2,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createProduct, deleteProduct, readProducts, updateProduct } from "../redux/slices/productsSlice";
-import { RootState } from "../redux/store";
-import { Product, Category, Size } from "../interfaces/Iecommerce";
-
-// Interface para gestionar el estado del producto editado
-interface EditedProductState {
-  category: Category;
-  product: Product;
-}
+import { createProduct, deleteProduct, readProducts, updateProduct } from "../../redux/slices/productsSlice";
+import { RootState } from "../../redux/store";
+import { Product, EditedProductState } from "../../interfaces/Iecommerce";
 
 const Products = () => {
   const products = useSelector((state: RootState) => state.products.products);

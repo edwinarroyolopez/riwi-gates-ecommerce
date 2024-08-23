@@ -59,3 +59,9 @@ export interface User {
     adress:   string;
     roles:    Size[];
 }
+
+// Interface para gestionar el estado del producto editado
+export interface EditedProductState {
+    category: Category;
+    product: Product;
+  }
