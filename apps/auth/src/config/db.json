@@ -7,6 +7,7 @@
       "password": "",
       "phone": "",
       "adress": "",
+      "isConfirm": "false",
       "roles": [
         {
           "id": 1,
