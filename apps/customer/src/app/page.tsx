@@ -15,13 +15,13 @@ const HomePage: FC = () => {
   return (
     <div className='centercontainer'>
       <h2>GATES STORE</h2>
-      <div onClick={() => handleImageClick('Women')}>
+      <div onClick={() => handleImageClick('women')}>
         <Image src="/women.jpg" width={450} height={600} alt="Women's Fashion" />
       </div>
-      <div onClick={() => handleImageClick('Men')}>
+      <div onClick={() => handleImageClick('men')}>
         <Image src="/men.jpeg" width={450} height={600} alt="Men's Fashion" />
       </div>
-      <div onClick={() => handleImageClick('Teen')}>
+      <div onClick={() => handleImageClick('teen')}>
         <Image src="/teen.jpg" width={450} height={600} alt="Teen's Fashion" />
       </div>
       <li><a href="/categories">categorias</a></li>
