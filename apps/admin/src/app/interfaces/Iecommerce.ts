@@ -1,6 +1,9 @@
 export interface Products {
-    users:    User[];
     products: Product[];
+}
+
+export interface Users {
+    users: User[];
 }
 
 export interface Product {
@@ -51,11 +54,15 @@ export interface Image {
 }
 
 export interface User {
-    id:       number;
+    id:       string;
     name:     string;
     email:    string;
     password: string;
     phone:    string;
     adress:   string;
-    roles:    Size[];
+    roles:    [id:number, name:string];
 }
+
+export interface EditedUserAdminState {
+    user: User;
+  }

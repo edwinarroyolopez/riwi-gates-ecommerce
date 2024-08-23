@@ -1,12 +1,13 @@
 "use client"
-import Product from "./components/Products"
-
+import Product from "./components/products/Products"
+import UsersAdmin from "./components/users/UsersAdmin"
 function App() {
   return (
     <>
-      <h1>react y toolkit</h1>
        <Product/>
+       <UsersAdmin/>
     </>
+     
   )
 }
 

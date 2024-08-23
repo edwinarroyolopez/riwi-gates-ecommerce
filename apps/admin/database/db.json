@@ -1,25 +1,15 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "",
-      "email": "",
+      "id": "1724434496737",
+      "name": "hhhh",
+      "email": "Default description",
       "password": "",
       "phone": "",
       "adress": "",
       "roles": [
-        {
-          "id": 1,
-          "name": "admin"
-        },
-        {
-          "id": 2,
-          "name": "user"
-        },
-        {
-          "id": 3,
-          "name": "superAdmin"
-        }
+        1,
+        "admin"
       ]
     }
   ],
