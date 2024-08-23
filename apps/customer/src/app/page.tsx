@@ -2,18 +2,30 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const HomePage: FC = () => {
+  const router = useRouter();
+
+  const handleImageClick = (category: string) => {
+    localStorage.setItem('category', category);
+    router.push('/home');
+  };
+
   return (
-      <div className='centercontainer'>
-        <h2>GATES STORE</h2>
-          <Link href="/home"> <Image src="/women.jpg" width={450} height={600} alt="Picture"/></Link>
-         
-          <Link href="/home"><Image src="/men.jpeg" width={450} height={600} alt="Picture"/></Link>
-          <Link href="/home"><Image src="/teen.jpg" width={450} height={600} alt="Picture"/></Link>
-        
-          <li><a href="/categories">categorias</a></li>
+    <div className='centercontainer'>
+      <h2>GATES STORE</h2>
+      <div onClick={() => handleImageClick('Women')}>
+        <Image src="/women.jpg" width={450} height={600} alt="Women's Fashion" />
       </div>
+      <div onClick={() => handleImageClick('Men')}>
+        <Image src="/men.jpeg" width={450} height={600} alt="Men's Fashion" />
+      </div>
+      <div onClick={() => handleImageClick('Teen')}>
+        <Image src="/teen.jpg" width={450} height={600} alt="Teen's Fashion" />
+      </div>
+      <li><a href="/categories">categorias</a></li>
+    </div>
   );
 };
 
