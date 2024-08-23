@@ -1,9 +1,10 @@
 "use client"
 
 import styles from './page.module.css'
-import { useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { IUser } from "./types";
 import { isValidPassword } from './utils';
+import { sendEmail } from '@/utils/sendEmail';
 
 const initialState:IUser={
   name: {
@@ -21,6 +22,8 @@ export default function Register() {
   const [user, setUser] = useState<IUser>(initialState);
   const [confirmEmail,setConfirmEmail] = useState('');
   const [confirmPassword,setConfirmPassword] = useState('');
+
+  const formRef = useRef<HTMLFormElement>(null);
 
   function handleName(e: React.ChangeEvent<HTMLInputElement>) {
     setUser(prevUser => ({
@@ -47,7 +50,8 @@ export default function Register() {
     }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    
     try {
       e.preventDefault();
       if(!user.name.firstName || !user.name.lastName || !user.email || !user.phone || !user.address || !user.password){
@@ -63,6 +67,7 @@ export default function Register() {
         throw new Error("La contraseña debe tener al menos 12 caracteres, 1 número, 1 letra mayúscula y 1 carácter especial");
       }
       console.log(user);
+      sendEmail(e,formRef);
     } catch (error) {
       alert(error);
     }
@@ -71,11 +76,11 @@ export default function Register() {
   return (
     <main>
       <h1>Register</h1>
-      <form className={styles.registerForm} onSubmit={handleSubmit}>
-        <input required id="firstName" onChange={handleName} type="text" placeholder="First Name" />
+      <form className={styles.registerForm} ref={formRef} onSubmit={handleSubmit}>
+        <input required id="firstName" onChange={handleName} type="text" placeholder="First Name" name='to_name'/>
         <input required id="lastName" onChange={handleName} type="text" placeholder="Last Name" />
         <small>{user.email!==confirmEmail?'El correo electrónico debe coincidir':''}</small>
-        <input required id="email" type="email" placeholder="Email" onChange={handleOthers}/>
+        <input required id="email" type="email" placeholder="Email" onChange={handleOthers} name="to_email"/>
         <input required id="confirm-email" type="email" placeholder="Confirm Email" onChange={handleConfirmEmail}/>
         <input id="phone" type="number" placeholder="Cellphone" onChange={handleOthers}/>
         <input required id="address" onChange={handleOthers} type="text" placeholder="Address" />
