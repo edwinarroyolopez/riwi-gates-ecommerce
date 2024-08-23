@@ -1,127 +1,263 @@
 {
-  "users": [
-    {
-      "id": "1",
-      "name": "",
-      "email": "",
-      "password": "",
-      "phone": "",
-      "adress": "",
-      "roles": [
-        {
-          "id": 1,
-          "name": "admin"
-        },
-        {
-          "id": 2,
-          "name": "user"
-        },
-        {
-          "id": 3,
-          "name": "superAdmin"
-        }
-      ]
-    },
-    {
-      "id": "c798",
-      "name": "test",
-      "email": "test@gmail.com",
-      "password": "123",
-      "phone": "1234567",
-      "adress": "cll 110",
-      "roles": [
-        {
-          "name": "admin"
-        }
-      ]
-    },
-    {
-      "id": "6729",
-      "name": "test",
-      "email": "test@gmail.com",
-      "password": "123",
-      "phone": "1234567",
-      "adress": "cll 110",
-      "roles": [
-        {
-          "id": 1,
-          "name": "admin"
-        }
-      ]
-    }
-  ],
-  "products": [
-    {
-      "id": "1",
-      "name": "",
-      "description": "",
-      "price": 0.0,
-      "stock": 0,
-      "size": [
-        {
-          "id": 1,
-          "name": "S"
-        },
-        {
-          "id": 2,
-          "name": "M"
-        }
-      ],
-      "thumbnail": "",
-      "images": [
-        {
-          "id": 1,
-          "url": ""
-        }
-      ],
-      "categories": [
-        {
-          "id": 1,
-          "name": "men",
-          "subcategories":[
-            {
-              "id": 1,
-              "name": "jeans"
-            },
-            {
-              "id": 2,
-              "name": "shirts"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "name": "women",
-          "subcategories":[
-            {
-              "id": 1,
-              "name": "jeans"
-            },
-            {
-              "id": 2,
-              "name": "shirts"
-            },
-            {
-              "id": 3,
-              "name": "clothes"
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "name": "kids",
-          "subcategories":[
-            {
-              "id": 1,
-              "name": "jeans"
-            },
-            {
-              "id": 2,
-              "name": "shirts"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
+    "products": [
+      {
+        "id": "1",
+        "name": "Camisa Casual Azul",
+        "description": "Camisa de algodón de manga larga, ideal para el día a día",
+        "price": 39.99,
+        "stock": 100,
+        "size": [
+          { "id": 1, "name": "S" },
+          { "id": 2, "name": "M" },
+          { "id": 3, "name": "L" }
+        ],
+        "thumbnail": "https://freeportstore.vteximg.com.br/arquivos/ids/2377206-1000-1000/1677697626_slabenn_1.jpg?v=638132944269570000",
+        "images": [
+          { "id": 1, "url": "https://arturocalle.vtexassets.com/arquivos/ids/639168-300-400?v=638530635131230000&width=300&height=400&aspect=true" },
+          { "id": 2, "url": "https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCO/122345182_01/w=1500,h=1500,fit=pad" }
+        ],
+        "categories": [
+          {
+            "id": 1,
+            "name": "men",
+            "subcategories": [
+              { "id": 2, "name": "shirts" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "Jeans Slim Fit",
+        "description": "Jeans ajustados de mezclilla premium",
+        "price": 59.99,
+        "stock": 75,
+        "size": [
+          { "id": 2, "name": "M" },
+          { "id": 3, "name": "L" },
+          { "id": 4, "name": "XL" }
+        ],
+        "thumbnail": "https://freeportstore.vteximg.com.br/arquivos/ids/2770598-1000-1000/jnaebyn-1.jpg?v=638237253099230000",
+        "images": [
+          { "id": 1, "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNQk6c1s_M63LTsa97vksKe1UfVWO-xjF8Ai4Nc7021l7GA0RCOsyRPyUGfMm0EbYPzNE&usqp=CAU" },
+          { "id": 2, "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqsN7dnJnXyMExjCuqsx9u0iFdF3TySng0GX_V2S_oZcBhJEHmbLJyBMZZh8SFyhJ-pW8&usqp=CAU" }
+        ],
+        "categories": [
+          {
+            "id": 1,
+            "name": "men",
+            "subcategories": [
+              { "id": 1, "name": "jeans" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "name": "Vestido Floral",
+        "description": "Vestido ligero con estampado floral",
+        "price": 49.99,
+        "stock": 50,
+        "size": [
+          { "id": 1, "name": "S" },
+          { "id": 2, "name": "M" },
+          { "id": 3, "name": "L" }
+        ],
+        "thumbnail": "https://lalapita.com/wp-content/uploads/2021/07/vestidos-largo-gala-tropical-flores-elegante-mujer-grado-alquiler-bogota-lalapita30.webp",
+        "images": [
+          { "id": 1, "url": "https://lalapita.com/wp-content/uploads/2021/06/vestidos-largo-gala-elegante-mujer-alquiler-bogota-lalapita13.webp" },
+          { "id": 2, "url": "https://m.media-amazon.com/images/I/81g7APzRKqL._AC_SY445_.jpg" }
+        ],
+        "categories": [
+          {
+            "id": 2,
+            "name": "women",
+            "subcategories": [
+              { "id": 3, "name": "clothes" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "name": "Camiseta Infantil Superhéroe",
+        "description": "Camiseta de algodón con diseño de superhéroe",
+        "price": 19.99,
+        "stock": 120,
+        "size": [
+          { "id": 1, "name": "S" },
+          { "id": 2, "name": "M" }
+        ],
+        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaJ94ew0N8CzTePmXLPV9tbcdM2ReDiJfiEg&s",
+        "images": [
+          { "id": 1, "url": "https://http2.mlstatic.com/D_NQ_NP_734690-MCO74673781406_022024-O.webp" },
+          { "id": 2, "url": "https://ae-pic-a1.aliexpress-media.com/kf/S7182381e471a4084ad63b5529931acfdU.jpg_640x640Q90.jpg_.webp" }
+        ],
+        "categories": [
+          {
+            "id": 3,
+            "name": "kids",
+            "subcategories": [
+              { "id": 2, "name": "shirts" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "name": "Blusa Elegante",
+        "description": "Blusa de seda con diseño elegante para ocasiones especiales",
+        "price": 69.99,
+        "stock": 40,
+        "size": [
+          { "id": 1, "name": "S" },
+          { "id": 2, "name": "M" },
+          { "id": 3, "name": "L" }
+        ],
+        "thumbnail": "https://cdnx.jumpseller.com/jacobo-en-linea/image/51310186/resize/635/635?1722506410",
+        "images": [
+          { "id": 1, "url": "https://cdnx.jumpseller.com/jacobo-en-linea/image/51309500/resize/635/635?1722502327" },
+          { "id": 2, "url": "https://cdnx.jumpseller.com/jacobo-en-linea/image/51309530/resize/635/635?1722502509" }
+        ],
+        "categories": [
+          {
+            "id": 2,
+            "name": "women",
+            "subcategories": [
+              { "id": 2, "name": "shirts" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "name": "Pantalón Chino",
+        "description": "Pantalón chino de algodón, estilo casual",
+        "price": 44.99,
+        "stock": 60,
+        "size": [
+          { "id": 2, "name": "M" },
+          { "id": 3, "name": "L" },
+          { "id": 4, "name": "XL" }
+        ],
+        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwgeBd-Nub2mieSJfiEjTnCcSV8Pa_eTNCLg&s.jpg",
+        "images": [
+          { "id": 1, "url": "https://cdn.koaj.co/c/403-category_default/slim-fit.jpg" },
+          { "id": 2, "url": "https://equus.vtexassets.com/arquivos/ids/182782-500-auto?v=637041813309330000&width=500&height=auto&aspect=true" }
+        ],
+        "categories": [
+          {
+            "id": 1,
+            "name": "men",
+            "subcategories": [
+              { "id": 1, "name": "jeans" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "name": "Falda Plisada",
+        "description": "Falda plisada de longitud media",
+        "price": 34.99,
+        "stock": 45,
+        "size": [
+          { "id": 1, "name": "S" },
+          { "id": 2, "name": "M" },
+          { "id": 3, "name": "L" }
+        ],
+        "thumbnail": "https://m.media-amazon.com/images/I/614tCTX0LeL._AC_SL1200_.jpg",
+        "images": [
+          { "id": 1, "url": "https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCO/126784478_01/w=800,h=800,fit=pad" },
+          { "id": 2, "url": "https://media.gotrendier.com.co/media/p/2022/11/27/n_5565d628-6ea7-11ed-88dd-12b69a149c11.jpeg" }
+        ],
+        "categories": [
+          {
+            "id": 2,
+            "name": "women",
+            "subcategories": [
+              { "id": 3, "name": "clothes" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "name": "Overol Infantil",
+        "description": "Overol de mezclilla para niños",
+        "price": 29.99,
+        "stock": 55,
+        "size": [
+          { "id": 1, "name": "S" },
+          { "id": 2, "name": "M" }
+        ],
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_953322-MCO71978616214_092023-O.webp",
+        "images": [
+          { "id": 1, "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVkIEKiAa20JYs-A87j-6-3NhNb5ICAr5kGsDHsbxwRSSejKkcLFUtp5mJLUCFiKnJTQo&usqp=CAU" },
+          { "id": 2, "url": "https://http2.mlstatic.com/D_NQ_NP_780896-MCO71978455404_092023-O.webp" }
+        ],
+        "categories": [
+          {
+            "id": 3,
+            "name": "kids",
+            "subcategories": [
+              { "id": 1, "name": "jeans" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "9",
+        "name": "Chaqueta de Cuero",
+        "description": "Chaqueta de cuero genuino, estilo motociclista",
+        "price": 129.99,
+        "stock": 30,
+        "size": [
+          { "id": 2, "name": "M" },
+          { "id": 3, "name": "L" },
+          { "id": 4, "name": "XL" }
+        ],
+        "thumbnail": "https://acdn.mitiendanube.com/stores/934/092/products/chaqueta-chamarra-oziris-21-54ccd0db4b8eeb3b5815494824871771-1024-1024.jpg",
+        "images": [
+          { "id": 1, "url": "https://multilevelstore.cl/cdn/shop/products/H6ee70557689f49bea723545cceea56b4A.jpg?v=1656360563" },
+          { "id": 2, "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOwKErvzCwDjSyQgfcaidQS3kp-LDTtoXkQX4zPgr3ZsEOM1JH1LT_GAxsBiSBdLcVx9I&usqp=CAU" }
+        ],
+        "categories": [
+          {
+            "id": 1,
+            "name": "men",
+            "subcategories": [
+              { "id": 3, "name": "clothes" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "10",
+        "name": "Suéter de Lana",
+        "description": "Suéter tejido de lana, perfecto para el invierno",
+        "price": 79.99,
+        "stock": 35,
+        "size": [
+          { "id": 1, "name": "S" },
+          { "id": 2, "name": "M" },
+          { "id": 3, "name": "L" },
+          { "id": 4, "name": "XL" }
+        ],
+        "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRmDVU8g6yndrERjIxAF1GmA_MCBwrj1a4tw&s",
+        "images": [
+          { "id": 1, "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPWLfIeCn3qEQand8G-kzMIT7nzmHbyVI-mqJS_V2MwLhhKXF3_jKGtCVolLe2LvLdPb8&usqp=CAU" },
+          { "id": 2, "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPWLfIeCn3qEQand8G-kzMIT7nzmHbyVI-mqJS_V2MwLhhKXF3_jKGtCVolLe2LvLdPb8&usqp=CAU" }
+        ],
+        "categories": [
+          {
+            "id": 2,
+            "name": "women",
+            "subcategories": [
+              { "id": 3, "name": "clothes" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
