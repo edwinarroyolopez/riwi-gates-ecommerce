@@ -3,8 +3,8 @@ export default interface IUser {
   email:string,
   password: string,
   phone: string,
-  adress: string,
-  roles: IObject[]
+  address: string,
+  roles: IObject
 }
 
 interface IObject {

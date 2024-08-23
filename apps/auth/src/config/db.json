@@ -21,33 +21,6 @@
           "name": "superAdmin"
         }
       ]
-    },
-    {
-      "id": "c798",
-      "name": "test",
-      "email": "test@gmail.com",
-      "password": "123",
-      "phone": "1234567",
-      "adress": "cll 110",
-      "roles": [
-        {
-          "name": "admin"
-        }
-      ]
-    },
-    {
-      "id": "6729",
-      "name": "test",
-      "email": "test@gmail.com",
-      "password": "123",
-      "phone": "1234567",
-      "adress": "cll 110",
-      "roles": [
-        {
-          "id": 1,
-          "name": "admin"
-        }
-      ]
     }
   ],
   "products": [
@@ -55,7 +28,7 @@
       "id": "1",
       "name": "",
       "description": "",
-      "price": 0.0,
+      "price": 0,
       "stock": 0,
       "size": [
         {
@@ -78,7 +51,7 @@
         {
           "id": 1,
           "name": "men",
-          "subcategories":[
+          "subcategories": [
             {
               "id": 1,
               "name": "jeans"
@@ -92,7 +65,7 @@
         {
           "id": 2,
           "name": "women",
-          "subcategories":[
+          "subcategories": [
             {
               "id": 1,
               "name": "jeans"
@@ -110,7 +83,7 @@
         {
           "id": 3,
           "name": "kids",
-          "subcategories":[
+          "subcategories": [
             {
               "id": 1,
               "name": "jeans"
