@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { createProduct, deleteProduct, readProducts, updateProduct } from "../../redux/slices/productsSlice";
 import { RootState } from "../../redux/store";
 import { Product, Category } from "../../interfaces/Iecommerce";
+import CreateForm from "./Form";
 
-// Interface para gestionar el estado del producto editado
 interface EditedProductState {
   category: Category;
   product: Product;
@@ -16,72 +16,61 @@ const Products = () => {
   const products = useSelector((state: RootState) => state.products.products);
   const dispatch = useDispatch();
 
-  const [newProductName, setNewProductName] = useState<string>("");
   const [editedProduct, setEditedProduct] = useState<EditedProductState | null>(null);
 
   useEffect(() => {
-    axios
-      .get<Product[]>("http://localhost:3004/products")
-      .then((response) => {
-        console.log(response);
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get<Product[]>("http://localhost:3004/products");
         dispatch(readProducts(response.data));
-      })
-      .catch((error) => console.error(error));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchProducts();
   }, [dispatch]);
 
-  const handleCreateProduct = () => {
-    if (newProductName) {
-      const newProduct: Product = {
-        id: (Date.now()).toString(),  // Asume un ID temporal, reemplazar con lógica real
-        name: newProductName,
-        description: "Default description",
-        price: 0,
-        stock: 0,
-        size: [], // Placeholder for sizes, adjust according to actual logic
-        thumbnail: "https://example.com/image.jpg",
-        images: [{ id: 1, url: "https://example.com/image.jpg" }],  // Placeholder
-        categories: [],  // Placeholder, adjust according to actual logic
-      };
-
+  const handleCreateProduct = async (newProduct: Product) => {
+    try {
+      await axios.post("http://localhost:3004/products", newProduct);
       dispatch(createProduct(newProduct));
-
-      axios
-        .post("http://localhost:3004/products", newProduct)
-        .then((response) => {
-          console.log(response);
-          setNewProductName("");
-        })
-        .catch((error) => console.error(error));
+    } catch (error) {
+      console.error("Error creating product:", error);
     }
   };
 
-  const handleUpdateProduct = () => {
-    if (editedProduct) {
-      const { product } = editedProduct;
-
-      // Actualizar el producto en el estado global
-      dispatch(updateProduct(product));
-
-      axios
-        .put(`http://localhost:3004/products/${product.id}`, product)
-        .then((response) => {
-          console.log(response);
-          setEditedProduct(null);
-        })
-        .catch((error) => console.error(error));
+  const handleUpdateProduct = async (updatedProduct: Product) => {
+    try {
+      await axios.put(`http://localhost:3004/products/${updatedProduct.id}`, updatedProduct);
+      dispatch(updateProduct(updatedProduct));
+      setEditedProduct(null);
+    } catch (error) {
+      console.error("Error updating product:", error);
     }
   };
 
-  const handleDeleteProduct = (productId: string) => {
-    dispatch(deleteProduct(productId));
-    axios
-      .delete(`http://localhost:3004/products/${productId}`)
-      .catch((error) => console.error(error));
+  const handleDeleteProduct = async (productId: string) => {
+    try {
+      await axios.delete(`http://localhost:3004/products/${productId}`);
+      dispatch(deleteProduct(productId));
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
   };
 
   return (
     <>
       <h2>Product CRUD</h2>
+      
+      {/* Renderizar el formulario para crear o editar un producto */}
+      <CreateForm
+        createData={handleCreateProduct}
+        updateData={handleUpdateProduct}
+        dataToEdit={editedProduct?.product || null}
+        setDataToEdit={(product: Product | null) => setEditedProduct(product ? { category: { men: [], women: [], kids: [] }, product } : null)}
+      />
+      
       <h3>Product List</h3>
       <ul>
         {products.map((product: Product) => (
@@ -99,7 +88,7 @@ const Products = () => {
                       })
                     }
                   />
-                  <button onClick={handleUpdateProduct}>Update</button>
+                  <button onClick={() => handleUpdateProduct(editedProduct.product)}>Update</button>
                 </div>
               ) : (
                 <div>
@@ -123,17 +112,10 @@ const Products = () => {
           </li>
         ))}
       </ul>
-      <aside>
-        <input
-          type="text"
-          value={newProductName}
-          onChange={(e) => setNewProductName(e.target.value)}
-        />
-        <button onClick={handleCreateProduct}>Add Product</button>
-      </aside>
     </>
   );
 };
 
 export default Products;
+
 
