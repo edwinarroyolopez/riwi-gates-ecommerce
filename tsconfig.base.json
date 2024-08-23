@@ -19,7 +19,7 @@
         "@admin/*": ["apps/admin/src/*"],
         "@customer/*": ["apps/customer/src/*"],
         "@common/*": ["apps/common/src/*"],
-        "@ui/*": ["packages/ui/src/*"],
+        "@ui/*": ["packages/ui/*"],
         "@utils/*": ["packages/utils/src/*"]
       }
     },
