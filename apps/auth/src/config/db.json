@@ -1,104 +1,127 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "jose",
-      "document_number": 123456789,
-      "email": "jose@jose",
-      "password": "123456",
-      "birthdate": "2000-01-01",
-      "cellphone": "123456789",
-      "zip_code": "123456",
-      "address": "calle 123",
-      "type_document_id": 1,
-      "country_id": 1,
-      "role_id": 1
+      "id": "1",
+      "name": "",
+      "email": "",
+      "password": "",
+      "phone": "",
+      "adress": "",
+      "roles": [
+        {
+          "id": 1,
+          "name": "admin"
+        },
+        {
+          "id": 2,
+          "name": "user"
+        },
+        {
+          "id": 3,
+          "name": "superAdmin"
+        }
+      ]
+    },
+    {
+      "id": "c798",
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "123",
+      "phone": "1234567",
+      "adress": "cll 110",
+      "roles": [
+        {
+          "name": "admin"
+        }
+      ]
+    },
+    {
+      "id": "6729",
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "123",
+      "phone": "1234567",
+      "adress": "cll 110",
+      "roles": [
+        {
+          "id": 1,
+          "name": "admin"
+        }
+      ]
     }
   ],
-  "roles": [
+  "products": [
     {
-      "id": 1,
-      "name": "admin"
-    },
-    {
-      "id": 2,
-      "name": "user"
-    },
-    {
-      "id": 3,
-      "name": "superAdmin"
-    }
-  ],
-  "type_documents": [
-    {
-      "id": 1,
-      "name": "CC"
-    },
-    {
-      "id": 2,
-      "name": "CE"
-    },
-    {
-      "id": 3,
-      "name": "NIT"
-    },
-    {
-      "id": 4,
-      "name": "PP"
-    }
-  ],
-  "countries": [
-    {
-      "id": 1,
-      "name": "Colombia"
-    },
-    {
-      "id": 2,
-      "name": "Brazil"
-    },
-    {
-      "id": 3,
-      "name": "EE.UU"
-    }
-  ],
-  "states": [
-    {
-      "id": 1,
-      "name": "Antioquia",
-      "country_id": 1
-    }
-  ],
-  "cities": [
-    {
-      "id": 1,
-      "name": "Medellin",
-      "state_id": 1
-    }
-  ],
-  "permissions": [
-    {
-      "id": 1,
-      "canCreate": true,
-      "canRead": true,
-      "canUpdate": true,
-      "canDelete": true,
-      "role_id": 1
-    },
-    {
-      "id": 2,
-      "canCreate": false,
-      "canRead": true,
-      "canUpdate": false,
-      "canDelete": false,
-      "role_id": 2
-    },
-    {
-      "id": 3,
-      "canCreate": true,
-      "canRead": true,
-      "canUpdate": true,
-      "canDelete": true,
-      "role_id": 3
+      "id": "1",
+      "name": "",
+      "description": "",
+      "price": 0.0,
+      "stock": 0,
+      "size": [
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        }
+      ],
+      "thumbnail": "",
+      "images": [
+        {
+          "id": 1,
+          "url": ""
+        }
+      ],
+      "categories": [
+        {
+          "id": 1,
+          "name": "men",
+          "subcategories":[
+            {
+              "id": 1,
+              "name": "jeans"
+            },
+            {
+              "id": 2,
+              "name": "shirts"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "women",
+          "subcategories":[
+            {
+              "id": 1,
+              "name": "jeans"
+            },
+            {
+              "id": 2,
+              "name": "shirts"
+            },
+            {
+              "id": 3,
+              "name": "clothes"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "kids",
+          "subcategories":[
+            {
+              "id": 1,
+              "name": "jeans"
+            },
+            {
+              "id": 2,
+              "name": "shirts"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
