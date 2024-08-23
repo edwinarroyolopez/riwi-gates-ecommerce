@@ -5,6 +5,8 @@ import Categorymain from '../components/cards/categorymain';
 import Categoryseason from '../components/cards/categoryseason';
 import LookSection from '../components/LookSection/LookSection';
 import styles from '../components/LookSection/styles/LookSection.module.scss'
+import Footer from '../components/ui/footer/footerBottom';
+
 
 const Category: FC = () => {
   return (
@@ -14,6 +16,7 @@ const Category: FC = () => {
         <Categorymain/>
         <Categoryseason/>
         <LookSection />
+        <Footer />
       </main>
   );
 };
