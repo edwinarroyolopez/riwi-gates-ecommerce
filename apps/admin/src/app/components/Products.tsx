@@ -1,16 +1,15 @@
-'use client';
+"use client";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createProduct, deleteProduct, readProducts, updateProduct } from "../redux/slices/productsSlice";
 import { RootState } from "../redux/store";
-import { Product, Category, Subcategory, ImagePromotion, Order, User, Permission, State, City } from "../interfaces/Iecommerce"; // Asegúrate de importar desde el archivo correcto
+import { Product, Category, Size } from "../interfaces/Iecommerce";
 
 // Interface para gestionar el estado del producto editado
 interface EditedProductState {
-  category: string;
-  subcategory: string;
-  product: Product;  // Cambiado para reflejar el objeto Product completo
+  category: Category;
+  product: Product;
 }
 
 const Products = () => {
@@ -35,12 +34,13 @@ const Products = () => {
       const newProduct: Product = {
         id: (Date.now()).toString(),  // Asume un ID temporal, reemplazar con lógica real
         name: newProductName,
-        description: "hola",
+        description: "Default description",
         price: 0,
-        units: 0,
-        category_id: 1,  // Asume un ID de categoría, reemplazar con lógica real
-        subcategory_id: 1,  // Asume un ID de subcategoría, reemplazar con lógica real
-        images: ["https://example.com/image.jpg"],
+        stock: 0,
+        size: [], // Placeholder for sizes, adjust according to actual logic
+        thumbnail: "https://example.com/image.jpg",
+        images: [{ id: 1, url: "https://example.com/image.jpg" }],  // Placeholder
+        categories: [],  // Placeholder, adjust according to actual logic
       };
 
       dispatch(createProduct(newProduct));
@@ -57,7 +57,7 @@ const Products = () => {
 
   const handleUpdateProduct = () => {
     if (editedProduct) {
-      const { category, subcategory, product } = editedProduct;
+      const { product } = editedProduct;
 
       // Actualizar el producto en el estado global
       dispatch(updateProduct(product));
@@ -81,8 +81,8 @@ const Products = () => {
 
   return (
     <>
-      <h2>Crud de productos</h2>
-      <h3>Lista de productos</h3>
+      <h2>Product CRUD</h2>
+      <h3>Product List</h3>
       <ul>
         {products.map((product: Product) => (
           <li key={product.id}>
@@ -99,7 +99,7 @@ const Products = () => {
                       })
                     }
                   />
-                  <button onClick={handleUpdateProduct}>Actualizar</button>
+                  <button onClick={handleUpdateProduct}>Update</button>
                 </div>
               ) : (
                 <div>
@@ -107,18 +107,15 @@ const Products = () => {
                   <button
                     onClick={() =>
                       setEditedProduct({
-                        category: "Category Placeholder",  // Asume un valor temporal
-                        subcategory: "Subcategory Placeholder",  // Asume un valor temporal
+                        category: { men: [], women: [], kids: [] },  // Placeholder, replace with actual logic
                         product: product,
                       })
                     }
                   >
-                    Editar
+                    Edit
                   </button>
-                  <button
-                    onClick={() => handleDeleteProduct(product.id)}
-                  >
-                    Eliminar
+                  <button onClick={() => handleDeleteProduct(product.id)}>
+                    Delete
                   </button>
                 </div>
               )}
@@ -132,10 +129,11 @@ const Products = () => {
           value={newProductName}
           onChange={(e) => setNewProductName(e.target.value)}
         />
-        <button onClick={handleCreateProduct}>Agregar producto</button>
+        <button onClick={handleCreateProduct}>Add Product</button>
       </aside>
     </>
   );
 };
 
 export default Products;
+

@@ -1,85 +1,61 @@
 export interface Products {
-    category:        Category[];
-    subcategory:     Subcategory[];
-    products:        Product[];
-    imagePromotions: ImagePromotion[];
-    orders:          Order[];
-    users:           User[];
-    roles:           Category[];
-    type_documents:  Category[];
-    countries:       Category[];
-    states:          State[];
-    cities:          City[];
-    permissions:     Permission[];
+    users:    User[];
+    products: Product[];
+}
+
+export interface Product {
+    id:          string;
+    name:        string;
+    description: string;
+    price:       number;
+    stock:       number;
+    size:        Size[];
+    thumbnail:   string;
+    images:      Image[];
+    categories:  Category[];
 }
 
 export interface Category {
+    men:   Kid[];
+    women: Woman[];
+    kids:  Kid[];
+}
+
+export interface Kid {
+    subCategories: KidSubCategory[];
+}
+
+export interface KidSubCategory {
+    jeans:  Size[];
+    shirts: Size[];
+}
+
+export interface Size {
     id:   number;
     name: string;
 }
 
-export interface City {
-    id:       number;
-    name:     string;
-    state_id: number;
+export interface Woman {
+    subCategories: WomanSubCategory[];
 }
 
-export interface ImagePromotion {
-    id:        number;
-    imagesUrl: string[];
+export interface WomanSubCategory {
+    jeans:   Size[];
+    shirts:  Size[];
+    clothes: Size[];
 }
 
-export interface Order {
-    order_id:    number;
-    user_id:     number;
-    order_date:  Date;
-    products_id: number[];
-}
-
-export interface Permission {
-    id:        number;
-    canCreate: boolean;
-    canRead:   boolean;
-    canUpdate: boolean;
-    canDelete: boolean;
-    role_id:   number;
-}
-
-export interface Product {
-    id:             string;
-    name:           string;
-    description:    string;
-    price:          number;
-    units:          number;
-    category_id:    number;
-    subcategory_id: number;
-    images:         string[];
-}
-
-export interface State {
-    id:         number;
-    name:       string;
-    country_id: number;
-}
-
-export interface Subcategory {
-    id:          number;
-    name:        string;
-    category_id: number;
+export interface Image {
+    id:  number;
+    url: string;
 }
 
 export interface User {
-    id:               number;
-    name:             string;
-    document_number:  number;
-    email:            string;
-    password:         string;
-    birthdate:        Date;
-    cellphone:        string;
-    zip_code:         string;
-    address:          string;
-    type_document_id: number;
-    country_id:       number;
-    role_id:          number;
+    id:       number;
+    name:     string;
+    email:    string;
+    password: string;
+    phone:    string;
+    adress:   string;
+    roles:    Size[];
 }
-
