@@ -1,15 +1,17 @@
 'use client'
 import { FC } from 'react';
-import Layout from './components/Layout';
+import Image from 'next/image';
 
 const HomePage: FC = () => {
   return (
-      <Layout>
-        <h2>Welcome to Our Store</h2>
-        <ul>
-          Home
-        </ul>
-      </Layout>
+      <div className='centercontainer'>
+        <h2>GATES STORE</h2>
+        
+          <Image src="/women.jpg" width={450} height={600} alt="Picture"/>
+          <Image src="/men.jpeg" width={450} height={600} alt="Picture"/>
+          <Image src="/teen.jpg" width={450} height={600} alt="Picture"/>
+        
+      </div>
   );
 };
 
