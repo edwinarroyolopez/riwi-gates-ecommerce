@@ -22,6 +22,8 @@ const RenderButton: React.FC<RenderButtonProps> = ({ onClick, disabled = false }
     boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
   };
 
+
+
   return (
     <button
       style={buttonStyle}

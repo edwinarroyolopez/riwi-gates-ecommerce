@@ -7,8 +7,8 @@ import Filter from "../JuanCalderon/components/filter";
 const Aside = () => {
     const asideStyle: React.CSSProperties = {
         position: "fixed",
-        left: 0,
-        top: 50,
+        left: 1000,
+        top: 200,
         width: "200px",
         height: "100vh",
         backgroundColor: "#f4f4f4",
