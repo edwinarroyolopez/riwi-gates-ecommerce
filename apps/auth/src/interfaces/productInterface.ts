@@ -25,3 +25,14 @@ interface ICategory{
 interface ISubcategory{
     name: string
 }
+
+export interface IOptionsFetch{
+    method?: string, 
+    headers?: {},
+    body?: string
+}
+
+export interface ShowError{
+    message: string,
+    status: number
+}
