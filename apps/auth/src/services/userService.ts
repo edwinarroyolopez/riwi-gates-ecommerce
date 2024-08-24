@@ -21,7 +21,7 @@ export class UserService{ // Clase UserService
       return ({message: "Error with the method fetchApi", status: 500}); // Devuelve un error en caso de falllo
     }
   }
-  static async getUsers(): Promise<{message: string, users: IUser[] | IUser | IShowMessage, status:number} | IShowMessage>{
+   async getUsers(): Promise<{message: string, users: IUser[] | IUser | IShowMessage, status:number} | IShowMessage>{
     const data = await UserService.fetchApi({url: "http://localhost:3040/users"});
     const dataStatusVerify = UserService.verifyDataStatus(data, "Users not found"); // Función para verifcar la data y el estado 
     if(!dataStatusVerify){ // Si retornar undefinend retorno los usuario
@@ -30,7 +30,7 @@ export class UserService{ // Clase UserService
     return (dataStatusVerify); // Retorna el error
   }
 
-  static async getUserById(user_id:number):Promise<{message: string, user: IUser[] | IUser | IShowMessage | IShowMessage, status:number} | IShowMessage | {message: string}>{
+  static async getUserById(user_id:string):Promise<{message: string, user: IUser[] | IUser | IShowMessage | IShowMessage, status:number} | IShowMessage | {message: string}>{
     if(user_id){
       return ({message: "Error. Is required user_id"});
     }
@@ -79,18 +79,19 @@ export class UserService{ // Clase UserService
     }
     return (dataStatusVerify);
   }
-  static async updateUser(user_id:number, user:Partial<IUser>):Promise<{message: string}>{
-    if(!user_id) ({message: "Error. Is required user_id"});
-    const {name,email,password,phone, address, roles} = user;
-    const dataVerify = Util.verifyData(name,email,password,phone, address);
+  static async updateUser(user_id:string, user:Partial<IUser>){ // Método para actualizar un usuario 
+    if(!user_id) ({message: "Error. Is required user_id"}); // Si no se obtiene un user id se retorna un error
+    const {name,email,password,phone, address, roles} = user; // Destructurar las propiedades del objeto user para verificar todos los datos
+    const dataVerify = Util.verifyData(name,email,password,phone, address); // Método para verificar los datos retornar true/ false
     if(!dataVerify) ({message: "Is required all the params..."});
-    
+
     const data = await UserService.fetchApi({url: `http://localhost:3040/users/${user_id}`, options: {
-      method: "UPDATE",
+      method: "PUT",
       headers:{
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
+        id: user_id,
         name,
         email,
         password,
@@ -99,5 +100,10 @@ export class UserService{ // Clase UserService
         roles
       })
     }})
+    const dataStatusVerify = UserService.verifyDataStatus(data,"Error to update user");
+    if(!dataStatusVerify){
+      return ({message: "Updated user correctly", status:200});
+    }
+    return (dataStatusVerify);
   }
 }

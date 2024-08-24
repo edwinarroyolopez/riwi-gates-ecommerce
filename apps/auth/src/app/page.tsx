@@ -6,14 +6,26 @@ import {UserService} from "@/services/userService";
 
 export default function Home() {
   useEffect(() => {
-    // UserService.getUsers().then((user) => console.log(user));
+      // UserService.getUsers().then((user) => console.log(user));
     // UserService.getUserById(1).then((user) => console.log(user));
-    UserService.postUser({
-      name: "test",
-      email: "test",
-      password: "test",
-      phone: "test",
-      address: "test",
+    // UserService.postUser({
+    //   name: "test",
+    //   email: "test",
+    //   password: "test",
+    //   phone: "test",
+    //   address: "test",
+    //   roles: 
+    //     {
+    //       id: 2,
+    //       name: "user"
+    //     }
+    // }).then((data) => console.log(data));
+    UserService.updateUser("b142",{
+      name: "updatedTest",
+      email: "test@gmail.com",
+      password: "123",
+      phone: "123456789",
+      address: "cll false",
       roles: 
         {
           id: 2,
