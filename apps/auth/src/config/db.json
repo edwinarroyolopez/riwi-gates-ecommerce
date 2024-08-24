@@ -22,32 +22,6 @@
           "name": "superAdmin"
         }
       ]
-    },
-    {
-      "id": "b142",
-      "name": "updatedTest",
-      "email": "test@gmail.com",
-      "password": "123",
-      "phone": "123456789",
-      "address": "cll false",
-      "roles": {
-        "id": 2,
-        "name": "user"
-      }
-    },
-    {
-      "id": "b431",
-      "name": "test",
-      "email": "test",
-      "password": "test",
-      "phone": "test",
-      "address": "test",
-      "roles": [
-        {
-          "id": 2,
-          "name": "user"
-        }
-      ]
     }
   ],
   "products": [

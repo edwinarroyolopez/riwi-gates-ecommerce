@@ -6,6 +6,7 @@ import {UserService} from "@/services/userService";
 
 export default function Home() {
   useEffect(() => {
+    const user = new UserService();
       // UserService.getUsers().then((user) => console.log(user));
     // UserService.getUserById(1).then((user) => console.log(user));
     // UserService.postUser({
@@ -20,18 +21,19 @@ export default function Home() {
     //       name: "user"
     //     }
     // }).then((data) => console.log(data));
-    UserService.updateUser("b142",{
-      name: "updatedTest",
-      email: "test@gmail.com",
-      password: "123",
-      phone: "123456789",
-      address: "cll false",
-      roles: 
-        {
-          id: 2,
-          name: "user"
-        }
-    }).then((data) => console.log(data));
+    // UserService.updateUser("b142",{
+    //   name: "updatedTest",
+    //   email: "test@gmail.com",
+    //   password: "123",
+    //   phone: "123456789",
+    //   address: "cll false",
+    //   roles: 
+    //     {
+    //       id: 2,
+    //       name: "user"
+    //     }
+    // }).then((data) => console.log(data));
+    user.deleteUser("b431").then((data) => console.log(data));
   }, []);
   return (
     <main className={styles.main}>

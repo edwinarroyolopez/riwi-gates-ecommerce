@@ -30,7 +30,7 @@ export class UserService{ // Clase UserService
     return (dataStatusVerify); // Retorna el error
   }
 
-  static async getUserById(user_id:string):Promise<{message: string, user: IUser[] | IUser | IShowMessage | IShowMessage, status:number} | IShowMessage | {message: string}>{
+    async getUserById(user_id:string):Promise<{message: string, user: IUser[] | IUser | IShowMessage | IShowMessage, status:number} | IShowMessage | {message: string}>{
     if(user_id){
       return ({message: "Error. Is required user_id"});
     }
@@ -43,7 +43,7 @@ export class UserService{ // Clase UserService
     return (dataStatusVerify);
   }
 
-  static async postUser(user:Partial<IUser>):Promise<{message: string} | {message: string, user: IUser[] | IUser | IShowMessage, status:number}>{
+  async postUser(user:Partial<IUser>):Promise<{message: string} | {message: string, user: IUser[] | IUser | IShowMessage, status:number}>{
     const {name,email,password,phone,address, roles} = user;
     const dataVerify = Util.verifyData(name,email,password,phone,address); // Verificar si falta algún data y retonar true o false
     const newRol = []
@@ -79,7 +79,7 @@ export class UserService{ // Clase UserService
     }
     return (dataStatusVerify);
   }
-  static async updateUser(user_id:string, user:Partial<IUser>){ // Método para actualizar un usuario 
+  async updateUser(user_id:string, user:Partial<IUser>){ // Método para actualizar un usuario 
     if(!user_id) ({message: "Error. Is required user_id"}); // Si no se obtiene un user id se retorna un error
     const {name,email,password,phone, address, roles} = user; // Destructurar las propiedades del objeto user para verificar todos los datos
     const dataVerify = Util.verifyData(name,email,password,phone, address); // Método para verificar los datos retornar true/ false
@@ -103,6 +103,21 @@ export class UserService{ // Clase UserService
     const dataStatusVerify = UserService.verifyDataStatus(data,"Error to update user");
     if(!dataStatusVerify){
       return ({message: "Updated user correctly", status:200});
+    }
+    return (dataStatusVerify);
+  }
+
+  async deleteUser(user_id:string){ // Métod para eliminar un usuario
+    if(!user_id) ({message: "Error. Is required user_id"});
+    const data = await UserService.fetchApi({url: `http://localhost:3040/users/${user_id}`, options: {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }})
+    const dataStatusVerify = UserService.verifyDataStatus(data, "Error to delete user"); // Verifcar si contiene un mensaje de error para luego retornar
+    if(!dataStatusVerify){
+      return ({message: "Deleted user correctly", status: 204})
     }
     return (dataStatusVerify);
   }

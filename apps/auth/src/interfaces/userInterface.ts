@@ -18,7 +18,7 @@ export interface IFetchApi{
     method: string,
     headers: {
     },
-    body: string
+    body?: string
   }
 }
 export interface IShowMessage{
