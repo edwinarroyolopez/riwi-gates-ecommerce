@@ -1,4 +1,5 @@
 import Aside from "./FelipeJimenez/Aside"
+import Filter from "./JuanCalderon/components/filter";
 
 const CategoriesPage = () => {
 
@@ -9,6 +10,7 @@ const CategoriesPage = () => {
             </div>
 
             <Aside></Aside>
+            <Filter></Filter>
         </main>
 
     );
