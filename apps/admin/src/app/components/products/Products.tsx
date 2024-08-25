@@ -78,7 +78,7 @@ const Products = () => {
             <div>
               {editedProduct?.product.id === product.id ? (
                 <div>
-                  <input
+                  {/* <input
                     type="text"
                     value={editedProduct.product.name}
                     onChange={(e) =>
@@ -88,7 +88,7 @@ const Products = () => {
                       })
                     }
                   />
-                  <button onClick={() => handleUpdateProduct(editedProduct.product)}>Update</button>
+                  <button onClick={() => handleUpdateProduct(editedProduct.product)}>Update</button> */}
                 </div>
               ) : (
                 <div>
