@@ -6,6 +6,7 @@ import { IUser } from "./types";
 import { isValidPassword } from './utils';
 import { sendEmail } from '@/utils/sendEmail';
 import { generateVerificationToken } from '@/utils/verificationToken';
+import postToken from '@/services/tokenServices';
 
 const initialState:IUser={
   name: {
@@ -19,6 +20,8 @@ const initialState:IUser={
 }
 
 export default function Register() {
+
+  const verificationTokenUrl = "http://localhost:3000/verificationToken";
   
   const [user, setUser] = useState<IUser>(initialState);
   const [confirmEmail,setConfirmEmail] = useState('');
@@ -68,8 +71,14 @@ export default function Register() {
         throw new Error("La contraseña debe tener al menos 12 caracteres, 1 número, 1 letra mayúscula y 1 carácter especial");
       }
       console.log(user);
-      const token = await generateVerificationToken(user.email);
-      sendEmail(e,formRef,token.token);
+      const token = generateVerificationToken(user.email);
+      try{
+        await postToken(token,verificationTokenUrl)
+      }catch(e){
+        console.log(e);
+      }
+      
+      // sendEmail(e,formRef,token.token);
 
     } catch (error) {
       alert(error);

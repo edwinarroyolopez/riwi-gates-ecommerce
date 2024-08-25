@@ -1,44 +1,44 @@
 {
   "category": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Top"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Bottom"
     }
   ],
   "subcategory": [
     {
-      "id": 1,
+      "id": "1",
       "name": "T-Shirts",
       "category_id": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Hoodies",
       "category_id": 1
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Shorts",
       "category_id": 2
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Jeans",
       "category_id": 2
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Pants",
       "category_id": 2
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Basic White T-Shirt",
       "description": "Simple white t-shirt made of cotton.",
       "price": 19.99,
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Graphic Tee",
       "description": "Black t-shirt with custom graphic print.",
       "price": 24.99,
@@ -62,7 +62,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Pullover Hoodie",
       "description": "Comfortable hoodie with front pocket and drawstrings.",
       "price": 39.99,
@@ -74,7 +74,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Slim Fit Jeans",
       "description": "Dark blue slim fit jeans with stretch fabric.",
       "price": 49.99,
@@ -86,7 +86,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Denim Shorts",
       "description": "Casual denim shorts with frayed edges.",
       "price": 29.99,
@@ -100,7 +100,7 @@
   ],
   "imagePromotions": [
     {
-      "id": 1,
+      "id": "1",
       "imagesUrl": [
         "https://example.com/image.jpg",
         "https://example.com/image.jpg"
@@ -112,24 +112,40 @@
       "order_id": 1,
       "user_id": 1,
       "order_date": "2024-08-21",
-      "products_id": [1, 2, 3]
+      "products_id": [
+        1,
+        2,
+        3
+      ],
+      "id": "ad48"
     },
     {
       "order_id": 2,
       "user_id": 1,
       "order_date": "2024-08-21",
-      "products_id": [4, 5]
+      "products_id": [
+        4,
+        5
+      ],
+      "id": "0531"
     },
     {
       "order_id": 3,
       "user_id": 1,
       "order_date": "2024-08-21",
-      "products_id": [1, 2, 3, 4, 5]
+      "products_id": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "id": "608c"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "jose",
       "document_number": 123456789,
       "email": "jose@jose",
@@ -145,67 +161,67 @@
   ],
   "roles": [
     {
-      "id": 1,
+      "id": "1",
       "name": "admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "user"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "superAdmin"
     }
   ],
   "type_documents": [
     {
-      "id": 1,
+      "id": "1",
       "name": "CC"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "CE"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "NIT"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "PP"
     }
   ],
   "countries": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Colombia"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Brazil"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "EE.UU"
     }
   ],
   "states": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Antioquia",
       "country_id": 1
     }
   ],
   "cities": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Medellin",
       "state_id": 1
     }
   ],
   "permissions": [
     {
-      "id": 1,
+      "id": "1",
       "canCreate": true,
       "canRead": true,
       "canUpdate": true,
@@ -213,7 +229,7 @@
       "role_id": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "canCreate": false,
       "canRead": true,
       "canUpdate": false,
@@ -221,7 +237,7 @@
       "role_id": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "canCreate": true,
       "canRead": true,
       "canUpdate": true,
@@ -229,13 +245,18 @@
       "role_id": 3
     }
   ],
-
   "verificationToken": [
     {
       "id": "1",
       "email": "prueba@gmail.com",
       "token": "ddscfdvwefccec",
       "expires": 1724603875903
+    },
+    {
+      "id": "c373",
+      "email": "pruiz5514@gmail.com",
+      "token": "e45c9961-9f36-46e5-b6ea-423260b9c7df",
+      "expires": 1724699660767
     }
   ]
 }
