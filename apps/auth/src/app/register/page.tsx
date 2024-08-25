@@ -5,6 +5,7 @@ import { FormEvent, useRef, useState } from "react";
 import { IUser } from "./types";
 import { isValidPassword } from './utils';
 import { sendEmail } from '@/utils/sendEmail';
+import { generateVerificationToken } from '@/utils/verificationToken';
 
 const initialState:IUser={
   name: {
@@ -50,7 +51,7 @@ export default function Register() {
     }));
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     
     try {
       e.preventDefault();
@@ -67,7 +68,9 @@ export default function Register() {
         throw new Error("La contraseña debe tener al menos 12 caracteres, 1 número, 1 letra mayúscula y 1 carácter especial");
       }
       console.log(user);
-      sendEmail(e,formRef);
+      const token = await generateVerificationToken(user.email);
+      sendEmail(e,formRef,token.token);
+
     } catch (error) {
       alert(error);
     }
@@ -88,6 +91,7 @@ export default function Register() {
         <small>{user.password!==confirmPassword?'Las contraseñas deben coincidir':''}</small>
         <input required id="password" type="password" placeholder="Password" onChange={handleOthers}/>
         <input required id="confirm-password" type="password" placeholder="Confirm Password" onChange={handleConfirmPassword}/>
+        <input type="hidden" name="token" />
         <button type="submit">Enviar</button>
       </form>
     </main>
