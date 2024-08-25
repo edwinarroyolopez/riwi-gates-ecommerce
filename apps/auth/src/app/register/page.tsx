@@ -78,7 +78,7 @@ export default function Register() {
         console.log(e);
       }
       
-      // sendEmail(e,formRef,token.token);
+      sendEmail(e,formRef,token.token);
 
     } catch (error) {
       alert(error);

@@ -18,3 +18,27 @@ export const postToken = async (token: IToken, url: string) => {
     const data = response.json();
     return data;
 }
+
+export const tokenUser = async (token: string, url: string) => {
+    const response = await fetch(`${url}?token=${token}`);
+    const data = response.json();
+
+    if (!response.ok) {
+        throw Error("No se pudo obtener el token")
+    }
+    return data
+}
+
+export const deleteToken = async (id: string, url: string) => {
+    const response = await fetch(`${url}/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'Application/json'
+        },
+    })
+    const data = response.json();
+    if (!response.ok) {
+        throw Error("No se pudo eliminar el token")
+    }
+    return data
+}
