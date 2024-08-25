@@ -228,5 +228,14 @@
       "canDelete": true,
       "role_id": 3
     }
+  ],
+
+  "verificationToken": [
+    {
+      "id": "1",
+      "email": "prueba@gmail.com",
+      "token": "ddscfdvwefccec",
+      "expires": 1724603875903
+    }
   ]
 }
