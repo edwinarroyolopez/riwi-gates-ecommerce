@@ -6,7 +6,7 @@ import { IUser } from "./types";
 import { isValidPassword } from './utils';
 import { sendEmail } from '@/utils/sendEmail';
 import { generateVerificationToken } from '@/utils/verificationToken';
-import postToken from '@/services/tokenServices';
+import {postToken} from '@/services/tokenServices';
 
 const initialState:IUser={
   name: {

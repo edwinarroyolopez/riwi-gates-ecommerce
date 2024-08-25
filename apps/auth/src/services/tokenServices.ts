@@ -1,6 +1,6 @@
 import { IToken } from "@/models/IToken";
 
-const postToken = async (token: IToken, url: string) => {
+export const postToken = async (token: IToken, url: string) => {
     const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -18,5 +18,3 @@ const postToken = async (token: IToken, url: string) => {
     const data = response.json();
     return data;
 }
-
-export default postToken;
