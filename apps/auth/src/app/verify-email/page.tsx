@@ -1,7 +1,7 @@
 "use client"
 
 import { deleteToken, tokenUser } from "@/services/tokenServices";
-import { getUserByEmail } from "@/services/tokenUserService";
+import { changeUserStatus, getUserByEmail } from "@/services/tokenUserService";
 import { useSearchParams } from "next/navigation";
 
 const VerifyPage = ()=>{
@@ -17,13 +17,15 @@ const VerifyPage = ()=>{
                 const tokenId = getToken[0].id
 
                 const user = await getUserByEmail(email);
+                console.log(user);
+                
                 const userId = user[0].id;
     
+                await changeUserStatus(userId);
                 await deleteToken(tokenId, verificationTokenUrl);
             }
             catch(e){
                 console.log(e);
-
             }
         }
         
