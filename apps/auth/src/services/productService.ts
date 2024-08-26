@@ -44,9 +44,9 @@ export class ProductService{
         return (dataStatusVerify);
     }
 
-    async postProduct(product:Partial<IProduct>){
+    async postProduct(product:Partial<IProduct>){// Método para crear el producto
         const {name,description,price,stock,sizes, thumbnail, images, categories} = product;
-        const dataVerifyExists = Util.verifyData(name,description,price,stock, thumbnail);
+        const dataVerifyExists = Util.verifyData(name,description,price,stock, thumbnail); // Verificar el estado de cada elemento, si es undifined o hay valor
         if(!dataVerifyExists){
             return ({message: "Is required all params [name,description,price,stock,thumbnail]"});
         }
