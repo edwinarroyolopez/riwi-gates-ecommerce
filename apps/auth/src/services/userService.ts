@@ -1,8 +1,15 @@
 import IUser, { IFetchApi, IShowMessage } from "@/interfaces/userInterface";
-import { NextResponse } from "next/server";
-
+import { Util } from "@/utils/util";
 
 export class UserService{ // Clase UserService
+
+  static verifyDataStatus(data:IUser[] | IUser | IShowMessage, mgs: string){
+    if(data && 'message' in data && 'status' in data){
+      console.log({message: mgs});
+      return (data);
+    }
+    return;
+  }
 
   static async fetchApi({url, options}: IFetchApi): Promise<IUser[] | IUser | IShowMessage>{ // Método fetchApi
     try{ // Manejador de errores -> Este método es necesario para obtener un error o la respuesta en formato json
@@ -14,164 +21,104 @@ export class UserService{ // Clase UserService
       return ({message: "Error with the method fetchApi", status: 500}); // Devuelve un error en caso de falllo
     }
   }
-  static async getUsers(): Promise<{message: string, users: IUser[] | IUser | IShowMessage, status:number} | IShowMessage>{
+   async getUsers(): Promise<{message: string, users: IUser[] | IUser | IShowMessage, status:number} | IShowMessage>{
     const data = await UserService.fetchApi({url: "http://localhost:3040/users"});
-    if(data && 'message' in data && 'status' in data){
-      console.log({message: "Users not found"}); // Mostrar un error al no enconrar el usuario
-      return (data); // Retorna el error del fetchApi
+    const dataStatusVerify = UserService.verifyDataStatus(data, "Users not found"); // Función para verifcar la data y el estado 
+    if(!dataStatusVerify){ // Si retornar undefinend retorno los usuario
+      return ({message: "users found...", users: data, status: 200});
     }
-    return ({message: "users found...", users: data, status: 200});
+    return (dataStatusVerify); // Retorna el error
   }
 
-  static async getUserById(user_id:number):Promise<{message: string, user: IUser[] | IUser | IShowMessage | IShowMessage, status:number} | IShowMessage>{
-    const data = await UserService.fetchApi({url: `http://localhost:3040/users/${user_id}`});
-    if(data && 'message' in data && 'status' in data){
-      console.log({message: "User not found"});
-      return (data);
+    async getUserById(user_id:string):Promise<{message: string, user: IUser[] | IUser | IShowMessage | IShowMessage, status:number} | IShowMessage | {message: string}>{
+    if(user_id){
+      return ({message: "Error. Is required user_id"});
     }
-    return ({message: "User found...", user: data, status: 200});
+    const data = await UserService.fetchApi({url: `http://localhost:3040/users/${user_id}`});
+
+    const dataStatusVerify = UserService.verifyDataStatus(data, "User not found"); // Verficar el estado para propagar el error
+    if(!dataStatusVerify){
+      return ({message: "User found...", user: data, status: 200});
+    }
+    return (dataStatusVerify);
+  }
+
+  async postUser(user:Partial<IUser>):Promise<{message: string} | {message: string, user: IUser[] | IUser | IShowMessage, status:number}>{
+    const {name,email,password,phone,address, roles} = user;
+    const dataVerify = Util.verifyData(name,email,password,phone,address); // Verificar si falta algún data y retonar true o false
+    const newRol = []
+    if(!roles){ // Se crea un role. Por defecto todos los usuarios serán role 
+      newRol.push({
+        id: 2,
+        name: "user"
+      })
+    }
+    if(roles){
+      newRol.push({id: roles!.id, name: roles!.name}) // Si existe el role se usa el rol que ingresa el usuario
+    }
+    if(!dataVerify)({message: "Error. Is required all params"}) // Verificar si retorna un false y mostarr los requerimientos
+
+    const data = await UserService.fetchApi({url: "http://localhost:3040/users/", options: { // Crear el usuario
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        phone,
+        address,
+        roles: newRol
+      })
+    }});
+
+    const dataStatusVerify = UserService.verifyDataStatus(data, "Error to create user");
+    if(!dataStatusVerify){// Retornar si el usuario se creó correctamente.
+      return ({message: "Created user correctly...", user:data, status: 201})
+    }
+    return (dataStatusVerify);
+  }
+  async updateUser(user_id:string, user:Partial<IUser>){ // Método para actualizar un usuario 
+    if(!user_id) ({message: "Error. Is required user_id"}); // Si no se obtiene un user id se retorna un error
+    const {name,email,password,phone, address, roles} = user; // Destructurar las propiedades del objeto user para verificar todos los datos
+    const dataVerify = Util.verifyData(name,email,password,phone, address); // Método para verificar los datos retornar true/ false
+    if(!dataVerify) ({message: "Is required all the params..."});
+
+    const data = await UserService.fetchApi({url: `http://localhost:3040/users/${user_id}`, options: {
+      method: "PUT",
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: user_id,
+        name,
+        email,
+        password,
+        phone,
+        address,
+        roles
+      })
+    }})
+    const dataStatusVerify = UserService.verifyDataStatus(data,"Error to update user");
+    if(!dataStatusVerify){
+      return ({message: "Updated user correctly", status:200});
+    }
+    return (dataStatusVerify);
+  }
+
+  async deleteUser(user_id:string){ // Métod para eliminar un usuario
+    if(!user_id) ({message: "Error. Is required user_id"});
+    const data = await UserService.fetchApi({url: `http://localhost:3040/users/${user_id}`, options: {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }})
+    const dataStatusVerify = UserService.verifyDataStatus(data, "Error to delete user"); // Verifcar si contiene un mensaje de error para luego retornar
+    if(!dataStatusVerify){
+      return ({message: "Deleted user correctly", status: 204})
+    }
+    return (dataStatusVerify);
   }
 }
-// export default class UserService {
-//   static async fetchApi(
-//     // Este método nos sirve para reutilizar tanto su manejador de erores como el fetch
-//     url: string,
-//     options: {},
-//     typeVerb: string,
-//     nameMethod: string
-//   ) {
-//     // Url: endoint,
-//     // options: options del método,
-//     // typeVerb: El tipo de verbo que son GET, POST, UPDATE, DELETE,
-//     // nameMethod: Nombre del método, ya sea getUsers, deleteUser - Esto se utiliza para mostrar en el manejador de errores
-//     try {
-//       // Manejador de errores
-//       const response = await fetch(url, options);
-//       if (!response.ok) {
-//         // Si la respuesta no es lo que se esperaba lanzar un nuevo error y el status
-//         throw new Error(`Error with the response - Status: ${response.status}`);
-//       }
-//       return response.json(); // Se espera retornar la respuesta en formato json
-//     } catch (error) {
-//       // Caso de error mostrar
-//       console.log({
-//         message: `Error with the method ${nameMethod}  - verb ${typeVerb}. Try again!`,
-//         error,
-//       });
-//     }
-//   }
-
-//   // Clase UserService
-//   static async getAllUsers(): Promise<IUser[] | undefined> {
-//     // Obtener todos los users
-//     const getUsers = await UserService.fetchApi("http://localhost:3040/users",{},"GET","getAllUsers"); // Conexión con el endpoint . El método fetchApi ya valida los errores
-//     if (getUsers) {
-//       console.log({ message: "Users found" });
-//       return getUsers;
-//     }
-//   }
-
-//   static async getUserById(user_id: string): Promise<IUser | undefined> {
-//     // Obtener un usuario por id
-//     // -----> Se espera Obtener un usuario por id. //
-//     const getUser: IUser = await UserService.fetchApi(`http://localhost:3040/users/${user_id}`,{},"GET","getUserById"
-//     );
-//     if (!getUser) {
-//       console.log({ message: "User not found" });
-//       return;
-//     }
-//     return getUser;
-//   }
-
-//   static async getUserByEmail(email: string | undefined): Promise<IUser | undefined>{ // Obtener un usuario por email
-//     const users: IUser[] = await UserService.fetchApi("http://localhost:3040/users", {}, "GET", "getUserByEmail"); // Buscar todos los usuario
-//     const userFound = users.find(user => user.email === email); // Filtrar el usuario por email
-//     if(userFound){ // Retonar el usuario si se encuentra
-//       return userFound
-//     }
-//     return;// Retornar un false si no se encuentra
-//   }
-
-//   static async createUser(user: Partial<IUser>):Promise<IUser | undefined | object> {// Método para crear usuarios. Se espera que se envíen todos los datos
-//     const {name, document_number, email,password,birthdate,cellphone,zip_code,
-//       address,type_document_id,country_id,role_id} = user;
-//     const dataVerify = Util.verifyData(name,document_number, email, password, birthdate, cellphone, zip_code,
-//                                       address, type_document_id, country_id, role_id); // Este método verifica si falta un dato 
-                                              
-//     if(!dataVerify){ //Mostrar error al faltar un dato
-//       console.log({message: "Error. Please send all the properties"});
-//       return;
-//     }
-//     const userFound = await UserService.getUserByEmail(email); // Obtener usuario encontrado o un undefined
-//     if(!userFound){
-//       console.log("Creating user...");
-//       const data = await UserService.fetchApi("http://localhost:3040/users",{ //Crear un usuario
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application-json",
-//           },
-//           body: JSON.stringify({ // Enviar el usuario
-//             name,
-//             document_number,
-//             email,
-//             password: Util.encryptPassword(password!), // Encriptar la password usando bcrypt
-//             birthdate,
-//             cellphone,
-//             zip_code,
-//             address,
-//             type_document_id,
-//             country_id,
-//             role_id: role_id! // El usuario siempre se crear con el role 2 user 
-//           }), // El JSON.stringify se utiliza para convertir el objeto en texto. El cuerpo debe estar en este formato
-//         },"POST","createUser" // Parámetros para enviar errores...
-//       ); 
-//       if(data){
-//         console.log("Created user correctly");
-//         return data;
-//       }  
-//     }
-//     return({message: "User exists. Try again!..."});
-//   }
-
-//   static async updateUser(user_id: string, user: Partial<IUser>): Promise<void> {
-//     // Método para actualizar un usuario
-//     console.log("Updating user...");
-//     const data = await UserService.fetchApi(`http://localhost:3040/users/${user_id}`,{
-//         method: "PUT",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(user), // Se espera el usuario actualizado
-//       },
-//       "PUT",
-//       "updateUser"
-//     );
-//     if(!data){
-//       console.log({message: "User not found for update"});
-//       return;
-//     }
-//     console.log({message: "Updated user correctly"});
-//   }
-//   static async updatePassword(newPassword: string, user_id: string): Promise<void> {
-//     // Método para cambiar la contraseña de un usuario en específico
-//     // Actualizar la password al usuario
-//     console.log("Updating password user")
-//     const data = await UserService.fetchApi(`http://localhost:3040/users/${user_id}`,
-//       {
-//         method: "PATCH",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//           password: Util.encryptPassword(newPassword), // Encriptar la nueva password
-//         }),
-//       },"PATCH","updatePassword"
-//     );
-//     if(!data){
-//       console.log({message: "Error to update user. User not found"});
-//       return;
-//     }
-//     console.log("Updated password user correctly...");
-//   }
-//   async deletePassword(user_id: number): Promise<void> {}
-// }
