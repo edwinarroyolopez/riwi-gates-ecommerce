@@ -1,7 +1,14 @@
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useEffect } from "react";
+import {UserService} from "@/services/userService";
 
 export default function Home() {
+  useEffect(() => {
+    // UserService.getUsers().then((user) => console.log(user));
+    UserService.getUserById(1).then((user) => console.log(user));
+  }, []);
   return (
     <main className={styles.main}>
       <div className={styles.description}>
