@@ -1,4 +1,4 @@
-export default interface IUser {
+export  interface IUser {
   name: string,
   email:string,
   password: string,
@@ -7,9 +7,9 @@ export default interface IUser {
   roles: IObject
 }
 
-interface IObject {
+export interface IObject {
   id: number,
-  name: string
+  name: 'user' | 'admin' | 'superAdmin'; 
 }
 
 export interface IFetchApi{

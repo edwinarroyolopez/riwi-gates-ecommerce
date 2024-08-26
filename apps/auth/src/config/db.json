@@ -2,9 +2,9 @@
   "users": [
     {
       "id": "1",
-      "name": "",
-      "email": "",
-      "password": "",
+      "name": "pepe",
+      "email": "deb@gmail.com",
+      "password": "pepe1",
       "phone": "",
       "adress": "",
       "isConfirm": "false",
