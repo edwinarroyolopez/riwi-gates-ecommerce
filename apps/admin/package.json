@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "concurrently \"npm run dev:next\" \"npm run dev:json\"",
     "dev:next": "next dev -p 3002",
-    "dev:json": "json-server --watch ../common/database/db.json --port 3004",
+    "dev:json": "json-server --watch ./database/db.json --port 3004",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.7",
+    "axios": "^1.7.4",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"

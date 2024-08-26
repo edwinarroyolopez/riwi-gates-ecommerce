@@ -1,232 +1,122 @@
 {
-  "category": [
+  "users": [
     {
-      "id": 1,
-      "name": "Top"
-    },
-    {
-      "id": 2,
-      "name": "Bottom"
-    }
-  ],
-  "subcategory": [
-    {
-      "id": 1,
-      "name": "T-Shirts",
-      "category_id": 1
-    },
-    {
-      "id": 2,
-      "name": "Hoodies",
-      "category_id": 1
-    },
-    {
-      "id": 3,
-      "name": "Shorts",
-      "category_id": 2
-    },
-    {
-      "id": 4,
-      "name": "Jeans",
-      "category_id": 2
-    },
-    {
-      "id": 5,
-      "name": "Pants",
-      "category_id": 2
+      "id": "1",
+      "name": "",
+      "email": "",
+      "password": "",
+      "phone": "",
+      "adress": "",
+      "roles": [
+        {
+          "id": 1,
+          "name": "admin"
+        },
+        {
+          "id": 2,
+          "name": "user"
+        },
+        {
+          "id": 3,
+          "name": "superAdmin"
+        }
+      ]
     }
   ],
   "products": [
     {
-      "id": 1,
-      "name": "Basic White T-Shirt",
-      "description": "Simple white t-shirt made of cotton.",
-      "price": 19.99,
-      "units": 150,
-      "category_id": 1,
-      "subcategory_id": 1,
+      "id": "1",
+      "name": "camisa",
+      "description": "camisa",
+      "price": 100,
+      "stock": 0,
+      "size": [
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        }
+      ],
+      "thumbnail": "",
       "images": [
-        "https://example.com/image.jpg"
+        {
+          "id": 1,
+          "url": ""
+        }
+      ],
+      "categories": [
+        {
+          "men": [
+            {
+              "subCategories": [
+                {
+                  "jeans": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "shirts": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "women": [
+            {
+              "subCategories": [
+                {
+                  "jeans": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "shirts": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "clothes": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kids": [
+            {
+              "subCategories": [
+                {
+                  "jeans": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "shirts": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
       ]
-    },
-    {
-      "id": 2,
-      "name": "Graphic Tee",
-      "description": "Black t-shirt with custom graphic print.",
-      "price": 24.99,
-      "units": 100,
-      "category_id": 1,
-      "subcategory_id": 1,
-      "images": [
-        "https://example.com/image.jpg"
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Pullover Hoodie",
-      "description": "Comfortable hoodie with front pocket and drawstrings.",
-      "price": 39.99,
-      "units": 75,
-      "category_id": 1,
-      "subcategory_id": 2,
-      "images": [
-        "https://example.com/image.jpg"
-      ]
-    },
-    {
-      "id": 4,
-      "name": "Slim Fit Jeans",
-      "description": "Dark blue slim fit jeans with stretch fabric.",
-      "price": 49.99,
-      "units": 200,
-      "category_id": 2,
-      "subcategory_id": 4,
-      "images": [
-        "https://example.com/image.jpg"
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Denim Shorts",
-      "description": "Casual denim shorts with frayed edges.",
-      "price": 29.99,
-      "units": 120,
-      "category_id": 2,
-      "subcategory_id": 3,
-      "images": [
-        "https://example.com/image.jpg"
-      ]
-    }
-  ],
-  "imagePromotions": [
-    {
-      "id": 1,
-      "imagesUrl": [
-        "https://example.com/image.jpg",
-        "https://example.com/image.jpg"
-      ]
-    }
-  ],
-  "orders": [
-    {
-      "order_id": 1,
-      "user_id": 1,
-      "order_date": "2024-08-21",
-      "products_id": [1, 2, 3]
-    },
-    {
-      "order_id": 2,
-      "user_id": 1,
-      "order_date": "2024-08-21",
-      "products_id": [4, 5]
-    },
-    {
-      "order_id": 3,
-      "user_id": 1,
-      "order_date": "2024-08-21",
-      "products_id": [1, 2, 3, 4, 5]
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "name": "jose",
-      "document_number": 123456789,
-      "email": "jose@jose",
-      "password": "123456",
-      "birthdate": "2000-01-01",
-      "cellphone": "123456789",
-      "zip_code": "123456",
-      "address": "calle 123",
-      "type_document_id": 1,
-      "country_id": 1,
-      "role_id": 1
-    }
-  ],
-  "roles": [
-    {
-      "id": 1,
-      "name": "admin"
-    },
-    {
-      "id": 2,
-      "name": "user"
-    },
-    {
-      "id": 3,
-      "name": "superAdmin"
-    }
-  ],
-  "type_documents": [
-    {
-      "id": 1,
-      "name": "CC"
-    },
-    {
-      "id": 2,
-      "name": "CE"
-    },
-    {
-      "id": 3,
-      "name": "NIT"
-    },
-    {
-      "id": 4,
-      "name": "PP"
-    }
-  ],
-  "countries": [
-    {
-      "id": 1,
-      "name": "Colombia"
-    },
-    {
-      "id": 2,
-      "name": "Brazil"
-    },
-    {
-      "id": 3,
-      "name": "EE.UU"
-    }
-  ],
-  "states": [
-    {
-      "id": 1,
-      "name": "Antioquia",
-      "country_id": 1
-    }
-  ],
-  "cities": [
-    {
-      "id": 1,
-      "name": "Medellin",
-      "state_id": 1
-    }
-  ],
-  "permissions": [
-    {
-      "id": 1,
-      "canCreate": true,
-      "canRead": true,
-      "canUpdate": true,
-      "canDelete": true,
-      "role_id": 1
-    },
-    {
-      "id": 2,
-      "canCreate": false,
-      "canRead": true,
-      "canUpdate": false,
-      "canDelete": false,
-      "role_id": 2
-    },
-    {
-      "id": 3,
-      "canCreate": true,
-      "canRead": true,
-      "canUpdate": true,
-      "canDelete": true,
-      "role_id": 3
     }
   ]
 }
