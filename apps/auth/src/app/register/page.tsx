@@ -1,9 +1,11 @@
 "use client"
 
 import styles from './page.module.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IUser } from "./types";
-import { isValidPassword } from './utils';
+import { isValidPassword, userExist } from './utils';
+import { UserService } from '@/services/userService';
+import { useRouter } from 'next/navigation';
 
 const initialState:IUser={
   name: {
@@ -16,11 +18,23 @@ const initialState:IUser={
   phone: "",
 }
 
+const api=new UserService;
+
 export default function Register() {
-  
+
+  const router=useRouter();
+
+  const [usersData,setUsersData]=useState<any>();
   const [user, setUser] = useState<IUser>(initialState);
   const [confirmEmail,setConfirmEmail] = useState('');
   const [confirmPassword,setConfirmPassword] = useState('');
+
+  useEffect(() => {
+    (async () => {
+      const apiResponse=await api.getUsers();
+      setUsersData(apiResponse.users);
+    })();
+  },[]);
 
   function handleName(e: React.ChangeEvent<HTMLInputElement>) {
     setUser(prevUser => ({
@@ -47,22 +61,30 @@ export default function Register() {
     }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     try {
       e.preventDefault();
+
       if(!user.name.firstName || !user.name.lastName || !user.email || !user.phone || !user.address || !user.password){
         throw new Error("Todos los campos son obligatorios");
       }
       if(user.email!==confirmEmail){
         throw new Error("Los correos electrónicos no coinciden");
       }
-      if(user.password!==confirmPassword){
-        throw new Error("Las contraseñas no coinciden");
+      if(userExist(user.email,usersData)){
+        throw new Error("El correo ya está registrado en la plataforma");
       }
       if(!isValidPassword(user.password)){
         throw new Error("La contraseña debe tener al menos 12 caracteres, 1 número, 1 letra mayúscula y 1 carácter especial");
       }
-      console.log(user);
+      if(user.password!==confirmPassword){
+        throw new Error("Las contraseñas no coinciden");
+      }
+      
+      const apiResponse=await api.postUser({name:user.name,email:user.email,password:user.password,phone:user.phone,address:user.address});
+      await alert(apiResponse.message);
+      router.push('/login');
+      
     } catch (error) {
       alert(error);
     }
@@ -83,7 +105,7 @@ export default function Register() {
         <small>{user.password!==confirmPassword?'Las contraseñas deben coincidir':''}</small>
         <input required id="password" type="password" placeholder="Password" onChange={handleOthers}/>
         <input required id="confirm-password" type="password" placeholder="Confirm Password" onChange={handleConfirmPassword}/>
-        <button type="submit">Enviar</button>
+        <button type="submit">Register</button>
       </form>
     </main>
   );
