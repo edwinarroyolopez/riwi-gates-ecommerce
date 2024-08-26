@@ -68,7 +68,7 @@ const Products = () => {
         createData={handleCreateProduct}
         updateData={handleUpdateProduct}
         dataToEdit={editedProduct?.product || null}
-        setDataToEdit={(product: Product | null) => setEditedProduct(product ? { category: { men: [], women: [], kids: [] }, product } : null)}
+        setDataToEdit={(product: Product | null) => setEditedProduct(product ? { category: { id: 0, name: "", subcategories: [] }, product } : null)}
       />
       
       <h3>Product List</h3>
@@ -78,7 +78,7 @@ const Products = () => {
             <div>
               {editedProduct?.product.id === product.id ? (
                 <div>
-                  <input
+                  {/* <input
                     type="text"
                     value={editedProduct.product.name}
                     onChange={(e) =>
@@ -88,7 +88,7 @@ const Products = () => {
                       })
                     }
                   />
-                  <button onClick={() => handleUpdateProduct(editedProduct.product)}>Update</button>
+                  <button onClick={() => handleUpdateProduct(editedProduct.product)}>Update</button> */}
                 </div>
               ) : (
                 <div>
@@ -96,7 +96,7 @@ const Products = () => {
                   <button
                     onClick={() =>
                       setEditedProduct({
-                        category: { men: [], women: [], kids: [] },  // Placeholder, replace with actual logic
+                        category: { id: 0, name: "", subcategories: [] },  // Placeholder, replace with actual logic
                         product: product,
                       })
                     }
@@ -117,5 +117,3 @@ const Products = () => {
 };
 
 export default Products;
-
-

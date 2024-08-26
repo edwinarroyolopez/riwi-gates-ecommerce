@@ -19,33 +19,18 @@ export interface Product {
 }
 
 export interface Category {
-    men:   Kid[];
-    women: Woman[];
-    kids:  Kid[];
+    id:            number;
+    name:          string;
+    subcategories: Subcategory[];
 }
-
-export interface Kid {
-    subCategories: KidSubCategory[];
-}
-
-export interface KidSubCategory {
-    jeans:  Size[];
-    shirts: Size[];
-}
-
-export interface Size {
-    id:   number;
+export interface Subcategory {
+    id: number;
     name: string;
 }
 
-export interface Woman {
-    subCategories: WomanSubCategory[];
-}
-
-export interface WomanSubCategory {
-    jeans:   Size[];
-    shirts:  Size[];
-    clothes: Size[];
+export interface Size {
+    id?:   number;
+    name: string;
 }
 
 export interface Image {
@@ -60,7 +45,7 @@ export interface User {
     password: string;
     phone:    string;
     adress:   string;
-    roles:    [id:number, name:string];
+    roles:    [{id:number, name:string}];
 }
 
 export interface EditedUserAdminState {
