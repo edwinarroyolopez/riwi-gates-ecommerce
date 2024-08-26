@@ -1,10 +1,10 @@
-export  interface IUser {
+export interface IUser {
   name: string,
   email:string,
   password: string,
   phone: string,
-  adress: string,
-  roles: IObject[]
+  address: string,
+  roles: IObject
 }
 
 export interface IObject {
@@ -18,7 +18,7 @@ export interface IFetchApi{
     method: string,
     headers: {
     },
-    body: string
+    body?: string
   }
 }
 export interface IShowMessage{
