@@ -1,15 +1,15 @@
-export default interface IUser {
+export interface IUser {
   name: string,
   email:string,
   password: string,
   phone: string,
-  adress: string,
-  roles: IObject[]
+  address: string,
+  roles: IObject
 }
 
-interface IObject {
+export interface IObject {
   id: number,
-  name: string
+  name: 'user' | 'admin' | 'superAdmin'; 
 }
 
 export interface IFetchApi{
@@ -18,10 +18,11 @@ export interface IFetchApi{
     method: string,
     headers: {
     },
-    body: string
+    body?: string
   }
 }
 export interface IShowMessage{
   message: string,
+  users:IUser[],
   status: number
 }
