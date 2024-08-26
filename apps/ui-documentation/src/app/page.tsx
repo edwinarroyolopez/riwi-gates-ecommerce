@@ -1,6 +1,6 @@
 'use client'
 import styles from "./page.module.css";
-import Button from '@ui/Button';
+import Button from '@ui/Button/Button';
 
 export default function Home() {
 

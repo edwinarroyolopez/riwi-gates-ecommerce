@@ -1,0 +1,127 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "",
+      "email": "",
+      "password": "",
+      "phone": "",
+      "adress": "",
+      "roles": [
+        {
+          "id": 1,
+          "name": "admin"
+        },
+        {
+          "id": 2,
+          "name": "user"
+        },
+        {
+          "id": 3,
+          "name": "superAdmin"
+        }
+      ]
+    },
+    {
+      "id": "c798",
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "123",
+      "phone": "1234567",
+      "adress": "cll 110",
+      "roles": [
+        {
+          "name": "admin"
+        }
+      ]
+    },
+    {
+      "id": "6729",
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "123",
+      "phone": "1234567",
+      "adress": "cll 110",
+      "roles": [
+        {
+          "id": 1,
+          "name": "admin"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "",
+      "description": "",
+      "price": 0.0,
+      "stock": 0,
+      "size": [
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        }
+      ],
+      "thumbnail": "",
+      "images": [
+        {
+          "id": 1,
+          "url": ""
+        }
+      ],
+      "categories": [
+        {
+          "id": 1,
+          "name": "men",
+          "subcategories":[
+            {
+              "id": 1,
+              "name": "jeans"
+            },
+            {
+              "id": 2,
+              "name": "shirts"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "women",
+          "subcategories":[
+            {
+              "id": 1,
+              "name": "jeans"
+            },
+            {
+              "id": 2,
+              "name": "shirts"
+            },
+            {
+              "id": 3,
+              "name": "clothes"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "kids",
+          "subcategories":[
+            {
+              "id": 1,
+              "name": "jeans"
+            },
+            {
+              "id": 2,
+              "name": "shirts"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
