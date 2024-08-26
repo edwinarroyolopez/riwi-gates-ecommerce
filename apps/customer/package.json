@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dev:json": "json-server --watch db.json --port 3004"
+    "dev:json": "json-server --watch ../common/database/db.json --port 3004"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
