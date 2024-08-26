@@ -118,145 +118,7 @@
       ]
     },
     {
-      "id": "fb52",
-      "name": "test",
-      "description": "test",
-      "price": 123,
-      "stock": 123,
-      "sizes": [
-        {
-          "id": 0,
-          "name": [
-            "s"
-          ]
-        }
-      ],
-      "images": [
-        {
-          "id": 0,
-          "url": [
-            "dasda.com"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "95ad",
-      "name": "test",
-      "description": "test",
-      "price": 123,
-      "stock": 123,
-      "sizes": [
-        {
-          "id": 0,
-          "name": [
-            "s"
-          ]
-        }
-      ],
-      "images": [
-        {
-          "id": 0,
-          "url": [
-            "dasda.com"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "eb6d",
-      "name": "test",
-      "description": "test",
-      "price": 123,
-      "stock": 123,
-      "sizes": [
-        {
-          "id": 0,
-          "name": [
-            "s"
-          ]
-        }
-      ],
-      "images": [
-        {
-          "id": 0,
-          "url": [
-            "dasda.com"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "cb9d",
-      "name": "test",
-      "description": "test",
-      "price": 123,
-      "stock": 123,
-      "sizes": [
-        {
-          "id": 0,
-          "name": [
-            "s"
-          ]
-        }
-      ],
-      "images": [
-        {
-          "id": 0,
-          "url": [
-            "dasda.com"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "5b14",
-      "name": "test",
-      "description": "test",
-      "price": 123,
-      "stock": 123,
-      "sizes": [
-        {
-          "id": 0,
-          "name": [
-            "s"
-          ]
-        }
-      ],
-      "images": [
-        {
-          "id": 0,
-          "url": [
-            "dasda.com"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "36ea",
-      "name": "test",
-      "description": "test",
-      "price": 123,
-      "stock": 123,
-      "sizes": [
-        {
-          "id": 0,
-          "name": [
-            "s"
-          ]
-        }
-      ],
-      "images": [
-        {
-          "id": 0,
-          "url": [
-            "dasda.com"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "53f8",
+      "id": "3a4b",
       "name": "test",
       "description": "test",
       "price": 123,
@@ -264,85 +126,24 @@
       "sizes": [
         {
           "id": 1,
-          "name": [
-            "s"
-          ]
+          "name": "s"
         }
       ],
       "images": [
         {
           "id": 1,
-          "url": [
-            "dasda.com"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "83f9",
-      "name": "test",
-      "description": "test",
-      "price": 123,
-      "stock": 123,
-      "sizes": [
-        {
-          "id": 1,
-          "name": [
-            "s"
-          ]
+          "url": "dasda.com"
         }
       ],
-      "images": [
+      "categories": [
         {
           "id": 1,
-          "url": [
-            "dasda.com"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "a19f",
-      "name": "test",
-      "description": "test",
-      "price": 123,
-      "stock": 123,
-      "sizes": [
-        {
-          "id": 1,
-          "name": [
-            "s"
-          ]
-        }
-      ],
-      "images": [
-        {
-          "id": 1,
-          "url": [
-            "dasda.com"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "04a5",
-      "name": "test",
-      "description": "test",
-      "price": 123,
-      "stock": 123,
-      "sizes": [
-        {
-          "id": 1,
-          "name": [
-            "s"
-          ]
-        }
-      ],
-      "images": [
-        {
-          "id": 1,
-          "url": [
-            "dasda.com"
+          "name": "test",
+          "subcategories": [
+            {
+              "id": 1,
+              "name": "test"
+            }
           ]
         }
       ]

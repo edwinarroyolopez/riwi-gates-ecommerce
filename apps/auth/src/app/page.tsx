@@ -22,7 +22,12 @@ export default function Home() {
       images: [{
         url: "dasda.com"
       }],
-      categories: [],
+      categories: [{
+        name: "test",
+        subcategories: [{
+          name: "test"
+        }]
+      }],
     }).then((res)=>console.log(res))
   }, []);
   return (

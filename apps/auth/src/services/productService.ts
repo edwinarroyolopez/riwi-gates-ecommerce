@@ -64,6 +64,7 @@ export class ProductService{
             id:++this.incrementImagesId,
             url: images.url
         }));
+        //Generar id único para categories y subcategories
         const uniqueCategories = categories.map(categories =>({
             id: ++this.incrementCategoriesId,
             name: categories.name,
@@ -71,22 +72,28 @@ export class ProductService{
                 id: ++this.incrementSubCategoriesId,
                 name: subcategories.name
             }))
-        }))
-        const data = await ProductService.fetchApi("http://localhost:3040/products", {
+        }));
+
+        const data = await ProductService.fetchApi("http://localhost:3040/products", { // Crear el producto
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
+            body: JSON.stringify({ // Propiedades del objeto
                 name,
                 description,
                 price,
                 stock,
+                thumbnail,
                 sizes: uniqueSizes,
                 images: uniqueImages,
                 categories: uniqueCategories
             })
         })
-        return data;
+        const verifyDataStatus = ProductService.verifyDataStatus(data,"");
+        if(!verifyDataStatus){ // Mostrar que se crea correctamente el producto
+            return ({message: "Created product correctly...", product: data, status: 201});
+        }
+        return (data); // Retornar la propagación de error con el fetchApi
     }
 }
