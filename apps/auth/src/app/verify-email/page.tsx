@@ -1,10 +1,11 @@
 "use client"
 
 import { deleteToken, tokenUser } from "@/services/tokenServices";
+import { getUserByEmail } from "@/services/tokenUserService";
 import { useSearchParams } from "next/navigation";
 
 const VerifyPage = ()=>{
-    const verificationTokenUrl = "http://localhost:3000/verificationToken";
+    const verificationTokenUrl = "http://localhost:3040/verificationToken";
     const searchParams = useSearchParams();
 
     const handleClick = async()=>{
@@ -12,8 +13,11 @@ const VerifyPage = ()=>{
         if(token){
             try{
                 const getToken = await tokenUser(token, verificationTokenUrl);
-                // const email = getToken[0].email;
+                const email = getToken[0].email;
                 const tokenId = getToken[0].id
+
+                const user = await getUserByEmail(email);
+                const userId = user[0].id;
     
                 await deleteToken(tokenId, verificationTokenUrl);
             }

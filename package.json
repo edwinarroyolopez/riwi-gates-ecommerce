@@ -20,6 +20,7 @@
   "packageManager": "npm@9.6.6",
   "dependencies": {
     "concurrently": "^8.2.2",
+    "sass": "^1.77.8",
     "uuidv4": "^6.2.13"
   }
 }

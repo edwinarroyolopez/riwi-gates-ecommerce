@@ -1,0 +1,112 @@
+{
+  "users": [
+    {
+      "id": "1724434496737",
+      "name": "hhhh",
+      "email": "Default description",
+      "password": "",
+      "phone": "",
+      "adress": "",
+      "roles": [
+        1,
+        "admin"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "camisa",
+      "description": "camisa",
+      "price": 100,
+      "stock": 0,
+      "size": [
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        }
+      ],
+      "thumbnail": "",
+      "images": [
+        {
+          "id": 1,
+          "url": ""
+        }
+      ],
+      "categories": [
+        {
+          "men": [
+            {
+              "subCategories": [
+                {
+                  "jeans": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "shirts": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "women": [
+            {
+              "subCategories": [
+                {
+                  "jeans": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "shirts": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "clothes": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "kids": [
+            {
+              "subCategories": [
+                {
+                  "jeans": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ],
+                  "shirts": [
+                    {
+                      "id": 1,
+                      "name": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
