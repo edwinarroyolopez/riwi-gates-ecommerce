@@ -2,34 +2,10 @@ import { IOptionsFetch, IProduct, ShowError } from "@/interfaces/productInterfac
 import { Util } from "@/utils/util";
 
 export class ProductService{
-    private incrementSizesid = 0;
+    private incrementSizesId = 0;
     private incrementImagesId = 0;
     private incrementCategoriesId = 0;
-    static autoIncrementId(type:string){
-        let numberIncrementSizes = 0;
-        let numberIncrementImages = 0;
-        let numberIncrementCategories = 0;
-
-        switch(type){
-            case "sizes":
-                return function(){
-                    return numberIncrementSizes++;
-                };
-            case "images":
-                return function(){
-                    return numberIncrementImages++;
-                }
-            case "categories":
-                return function(){
-                    return numberIncrementCategories++;
-                }
-            default: 
-                return function(){
-                    return 1
-                }
-        }        
-    }
-    
+    private incrementSubCategoriesId = 0;
     static async fetchApi(url: string, options?: IOptionsFetch): Promise<IProduct[] | IProduct|ShowError>{
         try{
             const response = await fetch(url,options);
@@ -77,9 +53,25 @@ export class ProductService{
         if(!sizes || !images || !categories){
             return ({message: "Is required all params [sizes,images, categories]"});
         }
-        const nameSize = sizes.map(size => size.name);
-        const urlImage = images.map(image=>image.url);
-        console.log("sdasda")
+        //Generar ID único para size
+        const uniqueSizes = sizes.map((size)=>({
+            id:++this.incrementSizesId,
+            name: size.name
+        }));
+
+        //Generar ID único para images
+        const uniqueImages = images.map((images)=>({
+            id:++this.incrementImagesId,
+            url: images.url
+        }));
+        const uniqueCategories = categories.map(categories =>({
+            id: ++this.incrementCategoriesId,
+            name: categories.name,
+            subcategories: categories.subcategories.map(subcategories =>({
+                id: ++this.incrementSubCategoriesId,
+                name: subcategories.name
+            }))
+        }))
         const data = await ProductService.fetchApi("http://localhost:3040/products", {
             method: "POST",
             headers: {
@@ -90,20 +82,11 @@ export class ProductService{
                 description,
                 price,
                 stock,
-                sizes: [
-                    {
-                        id: this.incrementSizesid+1,
-                        name: nameSize
-                    }
-                ],
-                images: [
-                    {
-                       id: this.incrementImagesId+1,
-                       url: urlImage 
-                    }
-                ]
+                sizes: uniqueSizes,
+                images: uniqueImages,
+                categories: uniqueCategories
             })
         })
-        return data
+        return data;
     }
 }
