@@ -1,4 +1,4 @@
-import IUser, { IFetchApi, IShowMessage } from "@/interfaces/userInterface";
+import { IUser, IFetchApi, IShowMessage } from "@/interfaces/userInterface";
 import { Util } from "@/utils/util";
 
 export class UserService{ // Clase UserService
@@ -69,6 +69,7 @@ export class UserService{ // Clase UserService
         password,
         phone,
         address,
+        isConfirm: false,
         roles: newRol
       })
     }});

@@ -4,6 +4,8 @@ import { Util } from "@/utils/util";
 export class ProductService{
     private incrementSizesId = 0;
     private incrementImagesId = 0;
+    private incrementCategoriesId = 0;
+    private incrementSubCategoriesId = 0;
     static async fetchApi(url: string, options?: IOptionsFetch): Promise<IProduct[] | IProduct|ShowError>{
         try{
             const response = await fetch(url,options);
@@ -52,18 +54,24 @@ export class ProductService{
             return ({message: "Is required all params [sizes,images, categories]"});
         }
         //Generar ID único para size
-        const uniqueSizes = sizes.map((size,index)=>({
+        const uniqueSizes = sizes.map((size)=>({
             id:++this.incrementSizesId,
             name: size.name
         }));
 
         //Generar ID único para images
-        const uniqueImages = images.map((images,index)=>({
+        const uniqueImages = images.map((images)=>({
             id:++this.incrementImagesId,
-            name: images.url
+            url: images.url
+        }));
+        const uniqueCategories = categories.map(categories =>({
+            id: ++this.incrementCategoriesId,
+            name: categories.name,
+            subcategories: categories.subcategories.map(subcategories =>({
+                id: ++this.incrementSubCategoriesId,
+                name: subcategories.name
+            }))
         }))
-
-        console.log("sdasda")
         const data = await ProductService.fetchApi("http://localhost:3040/products", {
             method: "POST",
             headers: {
@@ -75,9 +83,10 @@ export class ProductService{
                 price,
                 stock,
                 sizes: uniqueSizes,
-                images: uniqueImages
+                images: uniqueImages,
+                categories: uniqueCategories
             })
         })
-        return data
+        return data;
     }
 }
