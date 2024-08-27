@@ -76,24 +76,6 @@
           "name": "user"
         }
       ]
-    },
-    {
-      "id": "a10b",
-      "name": {
-        "firstName": "Pablo",
-        "lastName": "Ruiz "
-      },
-      "email": "pruiz5514@gmail.com",
-      "password": "Pruebariwi123$",
-      "phone": "65432",
-      "address": "dsdwdwq",
-      "isConfirm": "true",
-      "roles": [
-        {
-          "id": 2,
-          "name": "user"
-        }
-      ]
     }
   ],
   "verificationToken": [],

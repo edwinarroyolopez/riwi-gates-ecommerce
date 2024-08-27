@@ -28,3 +28,17 @@ export const changeUserStatus = async (id: string) => {
 
     return data
 }
+
+export const deleteUser = async (id: string, url: string) => {
+    const response = await fetch(`${url}/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'Application/json'
+        },
+    })
+    const data = response.json();
+    if (!response.ok) {
+        throw Error("No se pudo eliminar el usuraio")
+    }
+    return data
+}
