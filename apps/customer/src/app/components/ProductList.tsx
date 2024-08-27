@@ -10,7 +10,7 @@ interface Product {
     description: string;
 }
 
-const ProductList = ({ products }: { products: [Product] }) => {
+const ProductList = ({ products }: { products: Product[] }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {

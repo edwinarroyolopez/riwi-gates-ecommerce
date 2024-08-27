@@ -19,8 +19,8 @@ const initialState: ProductsState = {
 export const fetchProducts:any = createAsyncThunk<Product[]>(
   'products/fetchProducts',
   async () => {
-    const response:any = await fetch('http://localhost:3004/products');
-    console.log({ data: response.data })
+    console.log('fetchProducts')
+    const response:any = await  axios.get<Product[]>('http://localhost:3004/products');
     return response.data;
   }
 );
@@ -49,34 +49,3 @@ const productsSlice = createSlice({
 });
 
 export default productsSlice.reducer;
-
-
-// import { createSlice } from '@reduxjs/toolkit';
-
-// interface Product {
-//   id: number;
-//   name: string;
-//   price: number;
-// }
-
-// interface ProductsState {
-//   products: Product[];
-// }
-
-// const initialState: ProductsState = {
-//   products: [],
-// };
-
-// const productsSlice = createSlice({
-//   name: 'products',
-//   initialState,
-//   reducers: {
-//     setProducts: (state, action) => {
-//       state.products = action.payload;
-//     },
-//     // Otros reductores para manejar productos
-//   },
-// });
-
-// export const { setProducts } = productsSlice.actions;
-// export default productsSlice.reducer;
