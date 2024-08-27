@@ -51,3 +51,15 @@ export interface User {
 export interface EditedUserAdminState {
     user: User;
   }
+
+export interface TableRowProducts {
+    product : Product,
+    setDataToEdit: (product: Product | null) => void;
+    deleteData: (id: string) => void;
+}
+
+export interface TableData {
+    data : Product[],
+    setDataToEdit: (product: Product | null) => void;
+    deleteData: (id: string) => void;
+}

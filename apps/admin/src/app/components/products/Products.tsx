@@ -6,6 +6,7 @@ import { createProduct, deleteProduct, readProducts, updateProduct } from "../..
 import { RootState } from "../../redux/store";
 import { Product, Category } from "../../interfaces/Iecommerce";
 import CreateForm from "./Form";
+import Table from "./Table";
 
 interface EditedProductState {
   category: Category;
@@ -68,52 +69,20 @@ const Products = () => {
         createData={handleCreateProduct}
         updateData={handleUpdateProduct}
         dataToEdit={editedProduct?.product || null}
-        setDataToEdit={(product: Product | null) => setEditedProduct(product ? { category: { id: 0, name: "", subcategories: [] }, product } : null)}
+        setDataToEdit={(product: Product | null) => 
+          setEditedProduct(product ? { category: { id: 0, name: "", subcategories: [] }, product } : null)}
       />
       
       <h3>Product List</h3>
-      <ul>
-        {products.map((product: Product) => (
-          <li key={product.id}>
-            <div>
-              {editedProduct?.product.id === product.id ? (
-                <div>
-                  {/* <input
-                    type="text"
-                    value={editedProduct.product.name}
-                    onChange={(e) =>
-                      setEditedProduct({
-                        ...editedProduct,
-                        product: { ...editedProduct.product, name: e.target.value }
-                      })
-                    }
-                  />
-                  <button onClick={() => handleUpdateProduct(editedProduct.product)}>Update</button> */}
-                </div>
-              ) : (
-                <div>
-                  <span>{product.name}</span>
-                  <button
-                    onClick={() =>
-                      setEditedProduct({
-                        category: { id: 0, name: "", subcategories: [] },  // Placeholder, replace with actual logic
-                        product: product,
-                      })
-                    }
-                  >
-                    Edit
-                  </button>
-                  <button onClick={() => handleDeleteProduct(product.id)}>
-                    Delete
-                  </button>
-                </div>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
+      <Table 
+        data={products} 
+        setDataToEdit={(product: Product | null) => 
+          setEditedProduct(product ? { category: { id: 0, name: "", subcategories: [] }, product } : null)}
+        deleteData={handleDeleteProduct} 
+      />
     </>
   );
 };
 
 export default Products;
+

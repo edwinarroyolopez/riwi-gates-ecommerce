@@ -1,5 +1,3 @@
-// components/Form.tsx
-
 "use client";
 import React, { FormEvent, MouseEvent, useState, useEffect } from 'react';
 import { Product, Category, Subcategory } from "../../interfaces/Iecommerce";
@@ -88,22 +86,32 @@ const CreateForm: React.FC<CreateFormProps> = ({ createData, updateData, dataToE
 
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const categoryName = e.target.value;
-    setSelectedCategory(categoryName);
-    const category = categories.find(cat => cat.name === categoryName);
-    setSubcategories(category?.subcategories || []);
-    setForm({ ...form, categories: [{ ...category!, name: categoryName }] });
-  };
+    const selectedCategory = categories.find(cat => cat.name === categoryName);
+    
+    if (selectedCategory) {
+        setSelectedCategory(categoryName);
+        setSubcategories(selectedCategory.subcategories);
+        setForm({
+            ...form,
+            categories: [selectedCategory] // Guardar solo la categoría seleccionada
+        });
+    }
+};
 
-  const handleSubcategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const subcategoryName = e.target.value;
-    setForm(prevForm => ({
-      ...prevForm,
-      categories: [{
-        ...prevForm.categories[0],
-        subcategories: [{ id: Date.now(), name: subcategoryName }],
-      }]
-    }));
-  };
+const handleSubcategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const subcategoryName = e.target.value;
+  setForm(prevForm => ({
+    ...prevForm,
+    categories: [{
+      ...prevForm.categories[0],
+      subcategories: [{ 
+        id: prevForm.categories[0]?.subcategories[0]?.id || Date.now(), 
+        name: subcategoryName 
+      }],
+    }]
+  }));
+};
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
