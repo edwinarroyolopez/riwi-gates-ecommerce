@@ -23,5 +23,6 @@ export interface IFetchApi{
 }
 export interface IShowMessage{
   message: string,
+  users:IUser[],
   status: number
 }

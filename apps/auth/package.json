@@ -10,6 +10,7 @@
     "server": "json-server --watch ./src/config/db.json --port 3040"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@types/crypto-js": "^4.2.2",
     "crypto-js": "^4.2.0",
     "json-server": "^1.0.0-beta.2",

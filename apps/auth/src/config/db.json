@@ -42,8 +42,43 @@
           "name": "user"
         }
       ]
+    },
+    {
+      "id": "2d0d",
+      "name": {
+        "firstName": "Juan",
+        "lastName": "Arias"
+      },
+      "email": "juan@arias.com",
+      "password": "Riwiprueba123*",
+      "phone": "3219819",
+      "address": "Av323623",
+      "roles": [
+        {
+          "id": 2,
+          "name": "user"
+        }
+      ]
+    },
+    {
+      "id": "2643",
+      "name": {
+        "firstName": "Juan",
+        "lastName": "Pablo"
+      },
+      "email": "juan@pablo.com",
+      "password": "Riwiprueba123*",
+      "phone": "24321434",
+      "address": "Av2432521",
+      "roles": [
+        {
+          "id": 2,
+          "name": "user"
+        }
+      ]
     }
   ],
+  "verificationToken": [],
   "products": [
     {
       "id": "1",
