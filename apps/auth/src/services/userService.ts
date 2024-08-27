@@ -31,7 +31,7 @@ export class UserService{ // Clase UserService
   }
 
     async getUserById(user_id:string):Promise<{message: string, user: IUser[] | IUser | IShowMessage | IShowMessage, status:number} | IShowMessage | {message: string}>{
-    if(user_id){
+    if(!user_id){
       return ({message: "Error. Is required user_id"});
     }
     const data = await UserService.fetchApi({url: `http://localhost:3040/users/${user_id}`});
