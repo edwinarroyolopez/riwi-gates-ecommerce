@@ -1,18 +1,28 @@
 {
-    "tasks": {
-      "build": {
-        "dependsOn": ["^build"],
-        "outputs": ["dist/**", ".next/**"]
-      },
-      "lint": {
-        "outputs": []
-      },
-      "test": {
-        "outputs": ["coverage/**"]
-      },
-      "dev": {
-        "cache": false
-      }
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "test": {
+      "outputs": [
+        "coverage/**"
+      ]
+    },
+    "dev": {
+      "cache": false
+    },
+    "dev:json": {
+      "dependsOn": [],
+      "outputs": []
     }
   }
-  
+}

@@ -1,23 +1,24 @@
+'use client'
+
 import { FC } from 'react';
 import Layout from '../components/Layout';
+import { useProducts } from '../hooks/useProducts';
 import ProductList from '../components/ProductList';
 
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-}
+const ProductsPage: FC = () => {
 
-const ProductsPage: FC<{ products: Product[] }> = async () => {
-  const res = await fetch('https://rickandmortyapi.com/api/character');
-  const data = await res.json();
+  const { products, loading, error, filterByCategory } = useProducts();
 
-  const products = data.results;
-  
+
+  console.log({ products, loading, error })
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   return (
-      <Layout>
-        <ProductList products={products} />
-      </Layout>
+    <Layout>
+      <ProductList products={products} />
+    </Layout>
   );
 };
 
