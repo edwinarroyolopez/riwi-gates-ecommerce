@@ -63,3 +63,12 @@ export interface TableData {
     setDataToEdit: (product: Product | null) => void;
     deleteData: (id: string) => void;
 }
+
+export interface FilterProps {
+    onFilter: (query: string) => void;
+  }
+
+export interface EditedProductState {
+    category: Category;
+    product: Product;
+  }  
