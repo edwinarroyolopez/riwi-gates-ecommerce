@@ -2,7 +2,7 @@
 import { addItemToCart } from '../store/slices/cartSlice';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setProducts } from '../store/slices/productsSlice';
+// import { setProducts } from '../store/slices/productsSlice';
 
 interface Product {
     id: string;
@@ -15,7 +15,7 @@ const ProductList = ({ products }: { products: [Product] }) => {
 
     useEffect(() => {
       // Actualizar el estado global con los productos en el lado del cliente
-      dispatch(setProducts(products));
+    //   dispatch(setProducts(products));
     }, [dispatch, products]);
     
 

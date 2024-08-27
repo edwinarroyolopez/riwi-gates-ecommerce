@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db": "turbo run dev:json --filter=customer",
+    "customer": "turbo run dev --filter=customer",
+    "admin": "turbo run dev --filter=admin"
   },
   "keywords": [],
   "author": "",

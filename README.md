@@ -32,10 +32,10 @@ desde la raiz del proyecto cada vez que quieras iniciar este proyecto
 
 Ingresa a la carpeta ```cd apps/admin``` instala dependencias ```npm install``` luego para ejecuta el siguente comando ```npm run dev```
 
-El puerto en el que correrá ```customer``` será 
+El puerto en el que correrá ```admin``` será 
 ```http//:localhost:3002```
 
-Después de instaladas las dependencias puedes lanzar el comando ```npx turbo run dev --filter=admin```
+Después de instaladas las dependencias puedes lanzar el comando ```npm run admin```
 desde la raiz del proyecto cada vez que quieras iniciar este proyecto
 
 ## customer
@@ -47,5 +47,9 @@ Ingresa a la carpeta ```cd apps/customer``` instala dependencias ```npm install`
 El puerto en el que correrá ```customer``` será 
 ```http//:localhost:3001```
 
-Después de instaladas las dependencias puedes lanzar el comando ```npx turbo run dev --filter=customer```
+Después de instaladas las dependencias puedes lanzar el comando ```npm run customer```
 desde la raiz del proyecto cada vez que quieras iniciar este proyecto
+
+# db
+
+```npm run db``

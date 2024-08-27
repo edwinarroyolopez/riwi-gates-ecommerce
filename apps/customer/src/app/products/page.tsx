@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import Layout from '../components/Layout';
+import { useProducts } from '../hooks/useProducts';
 import ProductList from '../components/ProductList';
 
 interface Product {
@@ -9,15 +10,22 @@ interface Product {
 }
 
 const ProductsPage: FC<{ products: Product[] }> = async () => {
+
+  const { products, loading, error, filterByCategory } = useProducts();
+  console.log({ products })
+
   const res = await fetch('https://rickandmortyapi.com/api/character');
   const data = await res.json();
 
-  const products = data.results;
-  
+  const productsR = data.results;
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   return (
-      <Layout>
-        <ProductList products={products} />
-      </Layout>
+    <Layout>
+      <ProductList products={productsR} />
+    </Layout>
   );
 };
 

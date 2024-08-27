@@ -1,4 +1,21 @@
 {
+  "categories": [
+    {
+      "id": "1",
+      "name": "women",
+      "image": {"path": "/women.jpg", "alt": "Women'S Fashion"}
+    },
+    {
+      "id": "2",
+      "name": "men",
+      "image": {"path": "/men.jpg", "alt": "Men'S Fashion"}
+    }, 
+    {
+      "id": "3",
+      "name": "kids",
+      "image": {"path": "/kids.jpg", "alt": "Kid'S Fashion"}
+    }
+  ],
   "users": [
     {
       "id": "1724434496737",
