@@ -1,11 +1,14 @@
 "use client"
 
 import styles from './page.module.css'
-import { useEffect, useState } from "react";
+import { useEffect, FormEvent, useRef, useState } from "react";
 import { IUser } from "./types";
 import { isValidPassword, userExist } from './utils';
 import { UserService } from '@/services/userService';
 import { useRouter } from 'next/navigation';
+import { sendEmail } from '@/utils/sendEmail';
+import { generateVerificationToken } from '@/utils/verificationToken';
+import {postToken} from '@/services/tokenServices';
 
 const initialState:IUser={
   name: {
@@ -22,6 +25,8 @@ const api=new UserService;
 
 export default function Register() {
 
+  const verificationTokenUrl = "http://localhost:3040/verificationToken";
+
   const router=useRouter();
 
   const [usersData,setUsersData]=useState<any>();
@@ -35,6 +40,8 @@ export default function Register() {
       setUsersData(apiResponse.users);
     })();
   },[]);
+
+  const formRef = useRef<HTMLFormElement>(null);
 
   function handleName(e: React.ChangeEvent<HTMLInputElement>) {
     setUser(prevUser => ({
@@ -61,7 +68,8 @@ export default function Register() {
     }));
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    
     try {
       e.preventDefault();
 
@@ -82,9 +90,19 @@ export default function Register() {
       }
       
       const apiResponse=await api.postUser({name:user.name,email:user.email,password:user.password,phone:user.phone,address:user.address});
-      await alert(apiResponse.message);
+      alert(apiResponse.message);
       router.push('/login');
       
+      const token = generateVerificationToken(user.email);
+      try{
+        await postToken(token,verificationTokenUrl)
+      }catch(e){
+        console.log(e);
+      }
+      
+      sendEmail(e,formRef,token.token);
+      alert("Por favor valide su correo");
+
     } catch (error) {
       alert(error);
     }
@@ -93,11 +111,11 @@ export default function Register() {
   return (
     <main>
       <h1>Register</h1>
-      <form className={styles.registerForm} onSubmit={handleSubmit}>
-        <input required id="firstName" onChange={handleName} type="text" placeholder="First Name" />
+      <form className={styles.registerForm} ref={formRef} onSubmit={handleSubmit}>
+        <input required id="firstName" onChange={handleName} type="text" placeholder="First Name" name='to_name'/>
         <input required id="lastName" onChange={handleName} type="text" placeholder="Last Name" />
         <small>{user.email!==confirmEmail?'El correo electrónico debe coincidir':''}</small>
-        <input required id="email" type="email" placeholder="Email" onChange={handleOthers}/>
+        <input required id="email" type="email" placeholder="Email" onChange={handleOthers} name="to_email"/>
         <input required id="confirm-email" type="email" placeholder="Confirm Email" onChange={handleConfirmEmail}/>
         <input id="phone" type="number" placeholder="Cellphone" onChange={handleOthers}/>
         <input required id="address" onChange={handleOthers} type="text" placeholder="Address" />
@@ -105,6 +123,7 @@ export default function Register() {
         <small>{user.password!==confirmPassword?'Las contraseñas deben coincidir':''}</small>
         <input required id="password" type="password" placeholder="Password" onChange={handleOthers}/>
         <input required id="confirm-password" type="password" placeholder="Confirm Password" onChange={handleConfirmPassword}/>
+        <input type="hidden" name="token" />
         <button type="submit">Register</button>
       </form>
     </main>

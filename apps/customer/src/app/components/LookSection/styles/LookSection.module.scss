@@ -1,0 +1,56 @@
+.container {
+    text-align: center;
+    margin: 2rem 0;
+  
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+      color: gray;
+      margin-bottom: 1rem;
+    }
+  
+    .looks {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+  
+      .look {
+        position: relative;
+        width: 200px;
+  
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+        }
+  
+        p {
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          color: white;
+          font-size: 1rem;
+          font-weight: bold;
+          text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        }
+      }
+    }
+  
+    .button {
+      padding: 10px 20px;
+      background-color: white;
+      color: black;
+      border-color: black;
+     
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+  
