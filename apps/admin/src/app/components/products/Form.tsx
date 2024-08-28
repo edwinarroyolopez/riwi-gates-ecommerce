@@ -2,57 +2,59 @@
 import React, { FormEvent, MouseEvent, useState, useEffect } from 'react';
 import { Product, Category, Subcategory } from "../../interfaces/Iecommerce";
 
-interface CreateFormProps { 
-    createData: (product: Product) => void;
-    updateData: (product: Product) => void;
-    dataToEdit: Product | null;
-    setDataToEdit: (data: Product | null) => void;
+interface CreateFormProps {
+  createData: (product: Product) => void;
+  updateData: (product: Product) => void;
+  dataToEdit: Product | null;
+  setDataToEdit: (data: Product | null) => void;
 }
 
 const initialForm: Product = {
-    id: "",  
-    name: "",
-    description: "",
-    price: 0,
-    stock: 0,
-    size: [], 
-    thumbnail: "https://example.com/image.jpg",
-    images: [{ id: 1, url: "https://example.com/image.jpg" }],  
-    categories: [],
+  id: "",
+  name: "",
+  description: "",
+  price: 0,
+  stock: 0,
+  size: [],
+  thumbnail: "https://example.com/image.jpg",
+  images: [{ id: 1, url: "https://example.com/image.jpg" }],
+  categories: [],
 };
+
+
+const categories: Category[] = [
+  {
+    id: 1,
+    name: "Men",
+    subcategories: [
+      { id: 1, name: "jeans" },
+      { id: 2, name: "shirts" },
+    ],
+  },
+  {
+    id: 2,
+    name: "Women",
+    subcategories: [
+      { id: 3, name: "jeans" },
+      { id: 4, name: "shirts" },
+      { id: 5, name: "clothes" },
+    ],
+  },
+  {
+    id: 3,
+    name: "Kids",
+    subcategories: [
+      { id: 6, name: "jeans" },
+      { id: 7, name: "shirts" },
+    ],
+  },
+];
 
 const CreateForm: React.FC<CreateFormProps> = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
   const [form, setForm] = useState<Product>(initialForm);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
 
-  const categories: Category[] = [
-    {
-      id: 1,
-      name: "Men",
-      subcategories: [
-        { id: 1, name: "jeans" },
-        { id: 2, name: "shirts" },
-      ],
-    },
-    {
-      id: 2,
-      name: "Women",
-      subcategories: [
-        { id: 3, name: "jeans" },
-        { id: 4, name: "shirts" },
-        { id: 5, name: "clothes" },
-      ],
-    },
-    {
-      id: 3,
-      name: "Kids",
-      subcategories: [
-        { id: 6, name: "jeans" },
-        { id: 7, name: "shirts" },
-      ],
-    },
-  ];
 
   useEffect(() => {
     if (dataToEdit) {
@@ -87,40 +89,40 @@ const CreateForm: React.FC<CreateFormProps> = ({ createData, updateData, dataToE
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const categoryName = e.target.value;
     const selectedCategory = categories.find(cat => cat.name === categoryName);
-    
-    if (selectedCategory) {
-        setSelectedCategory(categoryName);
-        setSubcategories(selectedCategory.subcategories);
-        setForm({
-            ...form,
-            categories: [selectedCategory] // Guardar solo la categoría seleccionada
-        });
-    }
-};
 
-const handleSubcategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  const subcategoryName = e.target.value;
-  setForm(prevForm => ({
-    ...prevForm,
-    categories: [{
-      ...prevForm.categories[0],
-      subcategories: [{ 
-        id: prevForm.categories[0]?.subcategories[0]?.id || Date.now(), 
-        name: subcategoryName 
-      }],
-    }]
-  }));
-};
+    if (selectedCategory) {
+      setSelectedCategory(categoryName);
+      setSubcategories(selectedCategory.subcategories);
+      setForm({
+        ...form,
+        categories: [selectedCategory] // Guardar solo la categoría seleccionada
+      });
+    }
+  };
+
+  const handleSubcategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const subcategoryName = e.target.value;
+    setForm(prevForm => ({
+      ...prevForm,
+      categories: [{
+        ...prevForm.categories[0],
+        subcategories: [{
+          id: prevForm.categories[0]?.subcategories[0]?.id || Date.now(),
+          name: subcategoryName
+        }],
+      }]
+    }));
+  };
 
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (!form.id) {
-        form.id = Date.now().toString(); 
-        createData(form);
+      form.id = Date.now().toString();
+      createData(form);
     } else {
-        updateData(form);
+      updateData(form);
     }
     handleReset(e);
   };

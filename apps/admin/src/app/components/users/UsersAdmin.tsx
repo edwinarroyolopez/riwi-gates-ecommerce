@@ -33,7 +33,7 @@ const UsersAdmin = () => {
         password: "",
         phone: "",
         adress: "",
-        roles: [1, "admin"]
+        roles: [{"id": 1, "name": "admin"}]
       };
 
       dispatch(createUser(newUser));

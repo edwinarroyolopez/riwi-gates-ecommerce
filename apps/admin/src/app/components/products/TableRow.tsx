@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { TableRowProducts } from "../../interfaces/Iecommerce";
 
 const TableRow: React.FC<TableRowProducts> = ({ product, setDataToEdit, deleteData }) => {
@@ -14,7 +15,7 @@ const TableRow: React.FC<TableRowProducts> = ({ product, setDataToEdit, deleteDa
       <td>{categories[0]?.subcategories[0]?.name || "No Subcategory"}</td>
       <td>
         {images.length > 0 && (
-          <img 
+          <Image 
             src={images[0].url} 
             alt={`Product image`} 
             style={{ width: "50px", height: "50px" }} 
