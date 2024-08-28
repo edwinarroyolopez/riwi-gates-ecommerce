@@ -62,6 +62,8 @@ export interface TableData {
     data : Product[],
     setDataToEdit: (product: Product | null) => void;
     deleteData: (id: string) => void;
+    sortConfig: { key: string; direction: 'asc' | 'desc' } | null;
+  requestSort: (key: string) => void;
 }
 
 export interface FilterProps {
@@ -71,4 +73,14 @@ export interface FilterProps {
 export interface EditedProductState {
     category: Category;
     product: Product;
+  }
+  
+export interface SortConfig<T> {
+    key: keyof T;
+    direction: 'asc' | 'desc';
   }  
+
+  export interface TableHead {
+  sortConfig: { key: string; direction: 'asc' | 'desc' } | null;
+  requestSort: (key: string) => void;
+}  

@@ -1,16 +1,33 @@
-export default function TableHeader(){
-return(
-  <thead>
-    <tr>
-    <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Stock</th>
-      <th>Categorie</th>
-      <th>Subcategory</th>
-      <th>Image</th>
-      <th>Acciones</th>
-    </tr>
-</thead>
-   );
-}
+import React from "react";
+import {TableHead} from "../../interfaces/Iecommerce";
+
+const TableHeader: React.FC<TableHead> = ({ sortConfig, requestSort }) => {
+    return (
+      <thead>
+        <tr>
+          <th onClick={() => requestSort('name')}>
+            Name {sortConfig?.key === 'name' ? (sortConfig.direction === 'asc' ? '↑' : '↓') : null}
+          </th>
+          <th onClick={() => requestSort('description')}>
+            Description {sortConfig?.key === 'description' ? (sortConfig.direction === 'asc' ? '↑' : '↓') : null}
+          </th>
+          <th onClick={() => requestSort('price')}>
+            Price {sortConfig?.key === 'price' ? (sortConfig.direction === 'asc' ? '↑' : '↓') : null}
+          </th>
+          <th onClick={() => requestSort('stock')}>
+            Stock {sortConfig?.key === 'stock' ? (sortConfig.direction === 'asc' ? '↑' : '↓') : null}
+          </th>
+          <th onClick={() => requestSort('category')}>
+            Category {sortConfig?.key === 'category' ? (sortConfig.direction === 'asc' ? '↑' : '↓') : null}
+          </th>
+          <th onClick={() => requestSort('subcategory')}>
+            Subcategory {sortConfig?.key === 'subcategory' ? (sortConfig.direction === 'asc' ? '↑' : '↓') : null}
+          </th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+    );
+  };
+  
+  export default TableHeader;
