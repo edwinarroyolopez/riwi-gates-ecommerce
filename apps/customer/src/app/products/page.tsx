@@ -7,7 +7,7 @@ import ProductList from '../components/ProductList';
 
 const ProductsPage: FC = () => {
 
-  const { products, loading, error, filterByCategory } = useProducts();
+  const { products, loading, error } = useProducts();
 
 
   console.log({ products, loading, error })
