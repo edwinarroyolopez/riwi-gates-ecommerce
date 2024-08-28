@@ -38,21 +38,39 @@
       "price": 39.99,
       "stock": 100,
       "size": [
-        { "id": 1, "name": "S" },
-        { "id": 2, "name": "M" },
-        { "id": 3, "name": "L" }
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        },
+        {
+          "id": 3,
+          "name": "L"
+        }
       ],
       "thumbnail": "https://example.com/img1-thumbnail.jpg",
       "images": [
-        { "id": 1, "url": "https://example.com/img1-1.jpg" },
-        { "id": 2, "url": "https://example.com/img1-2.jpg" }
+        {
+          "id": 1,
+          "url": "https://example.com/img1-1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://example.com/img1-2.jpg"
+        }
       ],
       "categories": [
         {
           "id": 1,
           "name": "men",
           "subcategories": [
-            { "id": 2, "name": "shirts" }
+            {
+              "id": 2,
+              "name": "shirts"
+            }
           ]
         }
       ]
@@ -64,21 +82,39 @@
       "price": 59.99,
       "stock": 75,
       "size": [
-        { "id": 2, "name": "M" },
-        { "id": 3, "name": "L" },
-        { "id": 4, "name": "XL" }
+        {
+          "id": 2,
+          "name": "M"
+        },
+        {
+          "id": 3,
+          "name": "L"
+        },
+        {
+          "id": 4,
+          "name": "XL"
+        }
       ],
       "thumbnail": "https://example.com/img2-thumbnail.jpg",
       "images": [
-        { "id": 1, "url": "https://example.com/img2-1.jpg" },
-        { "id": 2, "url": "https://example.com/img2-2.jpg" }
+        {
+          "id": 1,
+          "url": "https://example.com/img2-1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://example.com/img2-2.jpg"
+        }
       ],
       "categories": [
         {
           "id": 1,
           "name": "men",
           "subcategories": [
-            { "id": 1, "name": "jeans" }
+            {
+              "id": 1,
+              "name": "jeans"
+            }
           ]
         }
       ]
@@ -90,21 +126,39 @@
       "price": 49.99,
       "stock": 50,
       "size": [
-        { "id": 1, "name": "S" },
-        { "id": 2, "name": "M" },
-        { "id": 3, "name": "L" }
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        },
+        {
+          "id": 3,
+          "name": "L"
+        }
       ],
       "thumbnail": "https://example.com/img3-thumbnail.jpg",
       "images": [
-        { "id": 1, "url": "https://example.com/img3-1.jpg" },
-        { "id": 2, "url": "https://example.com/img3-2.jpg" }
+        {
+          "id": 1,
+          "url": "https://example.com/img3-1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://example.com/img3-2.jpg"
+        }
       ],
       "categories": [
         {
           "id": 2,
           "name": "women",
           "subcategories": [
-            { "id": 3, "name": "clothes" }
+            {
+              "id": 3,
+              "name": "clothes"
+            }
           ]
         }
       ]
@@ -116,20 +170,35 @@
       "price": 19.99,
       "stock": 120,
       "size": [
-        { "id": 1, "name": "S" },
-        { "id": 2, "name": "M" }
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        }
       ],
       "thumbnail": "https://example.com/img4-thumbnail.jpg",
       "images": [
-        { "id": 1, "url": "https://example.com/img4-1.jpg" },
-        { "id": 2, "url": "https://example.com/img4-2.jpg" }
+        {
+          "id": 1,
+          "url": "https://example.com/img4-1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://example.com/img4-2.jpg"
+        }
       ],
       "categories": [
         {
           "id": 3,
           "name": "kids",
           "subcategories": [
-            { "id": 2, "name": "shirts" }
+            {
+              "id": 2,
+              "name": "shirts"
+            }
           ]
         }
       ]
@@ -141,21 +210,39 @@
       "price": 69.99,
       "stock": 40,
       "size": [
-        { "id": 1, "name": "S" },
-        { "id": 2, "name": "M" },
-        { "id": 3, "name": "L" }
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        },
+        {
+          "id": 3,
+          "name": "L"
+        }
       ],
       "thumbnail": "https://example.com/img5-thumbnail.jpg",
       "images": [
-        { "id": 1, "url": "https://example.com/img5-1.jpg" },
-        { "id": 2, "url": "https://example.com/img5-2.jpg" }
+        {
+          "id": 1,
+          "url": "https://example.com/img5-1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://example.com/img5-2.jpg"
+        }
       ],
       "categories": [
         {
           "id": 2,
           "name": "women",
           "subcategories": [
-            { "id": 2, "name": "shirts" }
+            {
+              "id": 2,
+              "name": "shirts"
+            }
           ]
         }
       ]
@@ -167,21 +254,39 @@
       "price": 44.99,
       "stock": 60,
       "size": [
-        { "id": 2, "name": "M" },
-        { "id": 3, "name": "L" },
-        { "id": 4, "name": "XL" }
+        {
+          "id": 2,
+          "name": "M"
+        },
+        {
+          "id": 3,
+          "name": "L"
+        },
+        {
+          "id": 4,
+          "name": "XL"
+        }
       ],
       "thumbnail": "https://example.com/img6-thumbnail.jpg",
       "images": [
-        { "id": 1, "url": "https://example.com/img6-1.jpg" },
-        { "id": 2, "url": "https://example.com/img6-2.jpg" }
+        {
+          "id": 1,
+          "url": "https://example.com/img6-1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://example.com/img6-2.jpg"
+        }
       ],
       "categories": [
         {
           "id": 1,
           "name": "men",
           "subcategories": [
-            { "id": 1, "name": "jeans" }
+            {
+              "id": 1,
+              "name": "jeans"
+            }
           ]
         }
       ]
@@ -193,21 +298,39 @@
       "price": 34.99,
       "stock": 45,
       "size": [
-        { "id": 1, "name": "S" },
-        { "id": 2, "name": "M" },
-        { "id": 3, "name": "L" }
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        },
+        {
+          "id": 3,
+          "name": "L"
+        }
       ],
       "thumbnail": "https://example.com/img7-thumbnail.jpg",
       "images": [
-        { "id": 1, "url": "https://example.com/img7-1.jpg" },
-        { "id": 2, "url": "https://example.com/img7-2.jpg" }
+        {
+          "id": 1,
+          "url": "https://example.com/img7-1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://example.com/img7-2.jpg"
+        }
       ],
       "categories": [
         {
           "id": 2,
           "name": "women",
           "subcategories": [
-            { "id": 3, "name": "clothes" }
+            {
+              "id": 3,
+              "name": "clothes"
+            }
           ]
         }
       ]
@@ -219,20 +342,35 @@
       "price": 29.99,
       "stock": 55,
       "size": [
-        { "id": 1, "name": "S" },
-        { "id": 2, "name": "M" }
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        }
       ],
       "thumbnail": "https://example.com/img8-thumbnail.jpg",
       "images": [
-        { "id": 1, "url": "https://example.com/img8-1.jpg" },
-        { "id": 2, "url": "https://example.com/img8-2.jpg" }
+        {
+          "id": 1,
+          "url": "https://example.com/img8-1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://example.com/img8-2.jpg"
+        }
       ],
       "categories": [
         {
           "id": 3,
           "name": "kids",
           "subcategories": [
-            { "id": 1, "name": "jeans" }
+            {
+              "id": 1,
+              "name": "jeans"
+            }
           ]
         }
       ]
@@ -244,21 +382,39 @@
       "price": 129.99,
       "stock": 30,
       "size": [
-        { "id": 2, "name": "M" },
-        { "id": 3, "name": "L" },
-        { "id": 4, "name": "XL" }
+        {
+          "id": 2,
+          "name": "M"
+        },
+        {
+          "id": 3,
+          "name": "L"
+        },
+        {
+          "id": 4,
+          "name": "XL"
+        }
       ],
       "thumbnail": "https://example.com/img9-thumbnail.jpg",
       "images": [
-        { "id": 1, "url": "https://example.com/img9-1.jpg" },
-        { "id": 2, "url": "https://example.com/img9-2.jpg" }
+        {
+          "id": 1,
+          "url": "https://example.com/img9-1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://example.com/img9-2.jpg"
+        }
       ],
       "categories": [
         {
           "id": 1,
           "name": "men",
           "subcategories": [
-            { "id": 3, "name": "clothes" }
+            {
+              "id": 3,
+              "name": "clothes"
+            }
           ]
         }
       ]
@@ -270,21 +426,39 @@
       "price": 79.99,
       "stock": 35,
       "size": [
-        { "id": 1, "name": "S" },
-        { "id": 2, "name": "M" },
-        { "id": 3, "name": "L" }
+        {
+          "id": 1,
+          "name": "S"
+        },
+        {
+          "id": 2,
+          "name": "M"
+        },
+        {
+          "id": 3,
+          "name": "L"
+        }
       ],
       "thumbnail": "https://example.com/img10-thumbnail.jpg",
       "images": [
-        { "id": 1, "url": "https://example.com/img10-1.jpg" },
-        { "id": 2, "url": "https://example.com/img10-2.jpg" }
+        {
+          "id": 1,
+          "url": "https://example.com/img10-1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://example.com/img10-2.jpg"
+        }
       ],
       "categories": [
         {
           "id": 1,
           "name": "men",
           "subcategories": [
-            { "id": 2, "name": "clothes" }
+            {
+              "id": 2,
+              "name": "clothes"
+            }
           ]
         }
       ]
