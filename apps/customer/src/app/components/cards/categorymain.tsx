@@ -1,14 +1,15 @@
 import { FC } from 'react';
+import Image from 'next/image';
 import './styles/stylescategory.sass'
 
 const Categorymain: FC = () => {
     return (
         <div className='categoryMain'>
-            <img src="/camisas.jpg" alt="" />
-            <img src="/camisas.jpg" alt="" />
-            <img src="/camisas.jpg" alt="" />
-            <img src="/camisas.jpg" alt="" />
-            <img src="/camisas.jpg" alt="" />
+            <Image src="/camisas.jpg" alt="" />
+            <Image src="/camisas.jpg" alt="" />
+            <Image src="/camisas.jpg" alt="" />
+            <Image src="/camisas.jpg" alt="" />
+            <Image src="/camisas.jpg" alt="" />
             <h1>Categoria 1</h1>
             <h1>Categoria 2</h1>
             <h1>Categoria 3</h1>

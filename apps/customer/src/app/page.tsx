@@ -53,7 +53,7 @@ const HomePage: FC = () => {
       {categories.length > 0 ?
         categories.map((category: string) => {
           return (
-            <div onClick={() => handleImageClick(category)}>
+            <div key={`${category}`} onClick={() => handleImageClick(category)}>
               <Image src={`/${category}.jpg`} width={450} height={600} alt={`${category}'S Fashion`} />
             </div>
           )

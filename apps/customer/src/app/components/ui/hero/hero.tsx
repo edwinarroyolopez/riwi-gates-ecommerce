@@ -3,11 +3,11 @@ import { FC, useState, useEffect } from 'react';
 import Image from 'next/image';
 import "./style/stylehero.sass"
 
+const images = ['/hero1.png', '/hero2.png', '/hero3.png'];
+
 const Hero: FC = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [progress, setProgress] = useState(0);
-
-    const images = ['/hero1.png', '/hero2.png', '/hero3.png'];
 
     useEffect(() => {
         const interval = setInterval(() => {

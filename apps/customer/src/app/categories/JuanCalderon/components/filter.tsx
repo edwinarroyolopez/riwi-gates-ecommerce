@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 // Importa o define aquí tu JSON de productos
-import productsData from '../../../../../db.json';
+// import productsData from '../../../../../db.json';
 //Obviamente es mas optimo hacerlo con un fetch del json, sin embargo de tanto intentarlo no me funciono, esta es la logica base que pude entender y hacer por encima para el filtrado
 
 
@@ -34,9 +34,10 @@ export default function CategoryComponent() {
   // Efecto para filtrar productos cuando cambia la categoría
   useEffect(() => {
     if (category) {
-      const products = productsData.products.filter(product =>
-        product.categories.some((cat: any) => cat.name === category)
-      );
+      // const products = productsData.products.filter(product =>
+      //   product.categories.some((cat: any) => cat.name === category)
+      // );
+      const products:any = []
       setFilteredProducts(products);
     }
   }, [category]); // Se ejecuta cada vez que cambia la categoría

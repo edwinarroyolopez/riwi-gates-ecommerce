@@ -1,14 +1,15 @@
 import { FC } from 'react';
+import Image from 'next/image';
 import './styles/stylescategory.sass'
 
 const Categoryseason: FC = () => {
     return (
         <div className='csBackground'>
             <div className='categoryseason'>
-                <img src="/camisas.jpg" alt="" />
-                <img src="/camisas.jpg" alt="" />
-                <img src="/camisas.jpg" alt="" />
-                <img src="/camisas.jpg" alt="" />
+                <Image src="/camisas.jpg" alt="" />
+                <Image src="/camisas.jpg" alt="" />
+                <Image src="/camisas.jpg" alt="" />
+                <Image src="/camisas.jpg" alt="" />
                 <h1>Summer</h1>
                 <h1>Street</h1>
                 <h1>Casual</h1>
