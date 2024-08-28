@@ -1,6 +1,5 @@
 'use client'
-import styles from "./page.module.css";
-import Button from '@ui/Button/Button';
+import Button from '@ui/Button/Button.ui';
 
 export default function Home() {
 
@@ -9,10 +8,11 @@ export default function Home() {
   }
 
   return (
-    <main className={styles.main}>
+    <main>
       UI Documentation
       <hr />
-      <Button label={"aceptar"} onClick={handleClick} />
+      All this is a 'preview' page for the Global styling...
+      <Button type={"button"} label={"aceptar"} onClick={handleClick} />
     </main>
   );
 }

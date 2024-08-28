@@ -10,6 +10,7 @@
   },
   "include": [
     "src",
-    ".next/types/**/*.ts"
-  ]
+    ".next/types/**/*.ts",
+    "../../packages/utils",
+    "../common/src/Declarations"  ]
 }
