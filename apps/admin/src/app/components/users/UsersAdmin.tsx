@@ -33,7 +33,7 @@ const UsersAdmin = () => {
         password: "",
         phone: "",
         adress: "",
-        roles: [1, "admin"]
+        roles: [{id:1, name:"admin"}]
       };
 
       dispatch(createUser(newUser));
@@ -50,7 +50,7 @@ const UsersAdmin = () => {
 
   const handleUpdateUserAdmin = () => {
     if (editedUserAdmin) {
-      const { user } = editedUserAdmin;
+      const { user } = editedUserAdmin; 
 
       // Actualizar el usuario en el estado global
       dispatch(updateUser(user));
