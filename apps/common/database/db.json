@@ -3,7 +3,8 @@
     {
       "id": "1",
       "name": "women",
-      "image": {"path": "/women.jpg", "alt": "Women'S Fashion"}
+      "image": {"path": "/women.jpg", "alt": "Women'S Fashion"},
+      "subcategories": [{},{}]
     },
     {
       "id": "2",

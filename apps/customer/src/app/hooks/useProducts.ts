@@ -8,8 +8,6 @@ import { Product } from '../types/product';
 
 export const useProducts = () => {
   
-  console.log('useProducts')
-
   const dispatch = useDispatch();
 
   // Selector para obtener productos desde el estado de Redux
