@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import './styles/navbarstyle.sass'
+import './styles/Headerstyle.sass'
 import Link from 'next/link';
 
-const Navbartop: FC = () => {
+const Headertop: FC = () => {
   return (
       <nav>
         <Link href='/categories'>Categoria 1</Link>
@@ -16,4 +16,4 @@ const Navbartop: FC = () => {
   );
 };
 
-export default Navbartop;
+export default Headertop;

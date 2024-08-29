@@ -10,7 +10,8 @@
   },
   "include": [
     "src",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "../common/src/Declarations"
   ],
   "exclude": [
     "node_modules"
