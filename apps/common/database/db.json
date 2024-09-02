@@ -3,18 +3,44 @@
     {
       "id": "1",
       "name": "women",
-      "image": {"path": "/women.jpg", "alt": "Women'S Fashion"},
-      "subcategories": [{},{}]
+      "image": {
+        "path": "/women.jpg",
+        "alt": "Women'S Fashion"
+      },
+      "subcategories": [
+        {},
+        {}
+      ]
     },
     {
       "id": "2",
       "name": "men",
-      "image": {"path": "/men.jpg", "alt": "Men'S Fashion"}
-    }, 
+      "image": {
+        "path": "/men.jpg",
+        "alt": "Men'S Fashion"
+      }
+    },
     {
       "id": "3",
       "name": "kids",
-      "image": {"path": "/kids.jpg", "alt": "Kid'S Fashion"}
+      "image": {
+        "path": "/kids.jpg",
+        "alt": "Kid'S Fashion"
+      }
+    }
+  ],
+  "usersDB": [
+    {
+      "id": "13fb",
+      "name": "Ed",
+      "email": "ed@gmail.com",
+      "password": "abcd"
+    },
+    {
+      "id": "ed68",
+      "name": "Ed",
+      "email": "ed@gmail.com",
+      "password": "abcd"
     }
   ],
   "users": [
@@ -29,6 +55,12 @@
         1,
         "admin"
       ]
+    },
+    {
+      "id": "20da"
+    },
+    {
+      "id": "1804"
     }
   ],
   "products": [
