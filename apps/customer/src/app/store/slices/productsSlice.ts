@@ -44,8 +44,14 @@ const productsSlice = createSlice({
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || 'Failed to load products';
+
+        console.log({ event: '-- extraReducers --', state })
       });
   },
 });
 
 export default productsSlice.reducer;
+
+export const selectProducts = (state:any) => state.products.items;
+export const selectLoading = (state:any) => state.products.loading;
+export const selectError = (state:any) => state.products.error;

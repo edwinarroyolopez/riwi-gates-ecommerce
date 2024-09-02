@@ -17,7 +17,7 @@ const ProductsPage: FC = () => {
 
   return (
     <Layout>
-      <ProductList products={products} />
+      <ProductList/>
     </Layout>
   );
 };
