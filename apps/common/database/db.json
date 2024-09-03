@@ -3,18 +3,62 @@
     {
       "id": "1",
       "name": "women",
-      "image": {"path": "/women.jpg", "alt": "Women'S Fashion"},
-      "subcategories": [{},{}]
+      "image": {
+        "path": "/women.jpg",
+        "alt": "Women'S Fashion"
+      },
+      "subcategories": [
+        {},
+        {}
+      ]
     },
     {
       "id": "2",
       "name": "men",
-      "image": {"path": "/men.jpg", "alt": "Men'S Fashion"}
-    }, 
+      "image": {
+        "path": "/men.jpg",
+        "alt": "Men'S Fashion"
+      }
+    },
     {
       "id": "3",
       "name": "kids",
-      "image": {"path": "/kids.jpg", "alt": "Kid'S Fashion"}
+      "image": {
+        "path": "/kids.jpg",
+        "alt": "Kid'S Fashion"
+      }
+    }
+  ],
+  "usersDB": [
+    {
+      "id": "13fb",
+      "name": "Ed",
+      "email": "ed@gmail.com",
+      "password": "abcd"
+    },
+    {
+      "id": "ed68",
+      "name": "Ed",
+      "email": "ed@gmail.com",
+      "password": "abcd"
+    },
+    {
+      "id": "61da",
+      "name": "Pablo",
+      "email": "pablo@gmail.com",
+      "password": "abcd.1234"
+    },
+    {
+      "id": "0e40",
+      "name": "Camilo",
+      "email": "camilo@gmail.com",
+      "password": "1234.abcd"
+    },
+    {
+      "id": "6170",
+      "name": "luisa",
+      "email": "luisa@gmail.com",
+      "password": "1234.abcd"
     }
   ],
   "users": [
@@ -29,6 +73,12 @@
         1,
         "admin"
       ]
+    },
+    {
+      "id": "20da"
+    },
+    {
+      "id": "1804"
     }
   ],
   "products": [
@@ -53,16 +103,7 @@
         }
       ],
       "thumbnail": "https://example.com/img1-thumbnail.jpg",
-      "images": [
-        {
-          "id": 1,
-          "url": "https://example.com/img1-1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "https://example.com/img1-2.jpg"
-        }
-      ],
+      "images": [],
       "categories": [
         {
           "id": 1,
@@ -97,16 +138,7 @@
         }
       ],
       "thumbnail": "https://example.com/img2-thumbnail.jpg",
-      "images": [
-        {
-          "id": 1,
-          "url": "https://example.com/img2-1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "https://example.com/img2-2.jpg"
-        }
-      ],
+      "images": [],
       "categories": [
         {
           "id": 1,
@@ -141,16 +173,7 @@
         }
       ],
       "thumbnail": "https://example.com/img3-thumbnail.jpg",
-      "images": [
-        {
-          "id": 1,
-          "url": "https://example.com/img3-1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "https://example.com/img3-2.jpg"
-        }
-      ],
+      "images": [],
       "categories": [
         {
           "id": 2,
@@ -181,16 +204,7 @@
         }
       ],
       "thumbnail": "https://example.com/img4-thumbnail.jpg",
-      "images": [
-        {
-          "id": 1,
-          "url": "https://example.com/img4-1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "https://example.com/img4-2.jpg"
-        }
-      ],
+      "images": [],
       "categories": [
         {
           "id": 3,
@@ -225,16 +239,7 @@
         }
       ],
       "thumbnail": "https://example.com/img5-thumbnail.jpg",
-      "images": [
-        {
-          "id": 1,
-          "url": "https://example.com/img5-1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "https://example.com/img5-2.jpg"
-        }
-      ],
+      "images": [],
       "categories": [
         {
           "id": 2,
@@ -269,16 +274,7 @@
         }
       ],
       "thumbnail": "https://example.com/img6-thumbnail.jpg",
-      "images": [
-        {
-          "id": 1,
-          "url": "https://example.com/img6-1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "https://example.com/img6-2.jpg"
-        }
-      ],
+      "images": [],
       "categories": [
         {
           "id": 1,
@@ -313,16 +309,7 @@
         }
       ],
       "thumbnail": "https://example.com/img7-thumbnail.jpg",
-      "images": [
-        {
-          "id": 1,
-          "url": "https://example.com/img7-1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "https://example.com/img7-2.jpg"
-        }
-      ],
+      "images": [],
       "categories": [
         {
           "id": 2,
@@ -353,16 +340,7 @@
         }
       ],
       "thumbnail": "https://example.com/img8-thumbnail.jpg",
-      "images": [
-        {
-          "id": 1,
-          "url": "https://example.com/img8-1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "https://example.com/img8-2.jpg"
-        }
-      ],
+      "images": [],
       "categories": [
         {
           "id": 3,
@@ -397,16 +375,7 @@
         }
       ],
       "thumbnail": "https://example.com/img9-thumbnail.jpg",
-      "images": [
-        {
-          "id": 1,
-          "url": "https://example.com/img9-1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "https://example.com/img9-2.jpg"
-        }
-      ],
+      "images": [],
       "categories": [
         {
           "id": 1,
@@ -441,16 +410,7 @@
         }
       ],
       "thumbnail": "https://example.com/img10-thumbnail.jpg",
-      "images": [
-        {
-          "id": 1,
-          "url": "https://example.com/img10-1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "https://example.com/img10-2.jpg"
-        }
-      ],
+      "images": [],
       "categories": [
         {
           "id": 1,

@@ -21,7 +21,9 @@
   },
   "packageManager": "npm@9.6.6",
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.6",
     "concurrently": "^8.2.2",
+    "jsonwebtoken": "^9.0.2",
     "sass": "^1.77.8"
   }
 }
